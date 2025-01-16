@@ -23,12 +23,12 @@ import { listenReadable } from '@opensumi/ide-utils/lib/stream';
 
 import { AI_MENU_BAR_LEFT_ACTION, EInlineOperation } from './constants'
 import { LeftToolbar } from './components/left-toolbar'
-import { explainPrompt, testPrompt, optimizePrompt, detectIntentPrompt, RenamePromptManager, terminalCommandSuggestionPrompt, codeEditsLintErrorPrompt } from './prompt'
+import { polishPrompt, translatePrompt, summarizePrompt, expandPrompt, detectIntentPrompt, RenamePromptManager, terminalCommandSuggestionPrompt, codeEditsLintErrorPrompt } from './prompt'
 import { CommandRender } from './command/command-render'
 import { AITerminalDebugService } from './ai-terminal-debug.service'
 import { InlineChatOperationModel } from './inline-chat-operation'
 import { AICommandService } from './command/command.service'
-import hiPng from './assets/hi.png'
+import YYDZPng from './assets/YYDZ.png'
 import { ILinterErrorData } from '@opensumi/ide-ai-native/lib/browser/contrib/intelligent-completions/source/lint-error.source';
 
 @Domain(ComponentContribution, AINativeCoreContribution)
@@ -60,15 +60,21 @@ export class AINativeContribution implements ComponentContribution, AINativeCore
     });
   }
 
+  // 注册聊天功能
   registerChatFeature(registry: IChatFeatureRegistry): void {
+    // 注册欢迎信息
     registry.registerWelcome(
-      new MarkdownString(`<img src="${hiPng}" />
-      嗨，我是您的专属 AI 小助手，我在这里回答有关代码的问题，并帮助您思考</br>您可以提问我一些关于代码的问题`),
+      // 创建Markdown字符串，包含欢迎信息和图片
+      new MarkdownString(`<img src="${YYDZPng}" />
+      你好，我是丁真，我来辅助你写作</br>芝士雪豹`),
       [
         {
+          // 设置图标
           icon: getIcon('send-hollow'),
-          title: '生成 Java 快速排序算法',
-          message: '生成 Java 快速排序算法',
+          // 设置标题
+          title: '写一篇有关雪豹的文章',
+          // 设置消息内容
+          message: '写一篇有关雪豹的文章',
         },
       ],
     );
@@ -101,25 +107,25 @@ export class AINativeContribution implements ComponentContribution, AINativeCore
 
     registry.registerSlashCommand(
       {
-        name: 'Explain',
-        description: '解释代码',
+        name: 'Polish',
+        description: '润色',
         isShortcut: true,
-        tooltip: '解释代码',
+        tooltip: '润色',
       },
       {
         providerInputPlaceholder(_value, _editor) {
-          return '请输入或者粘贴代码';
+          return '请输入文字';
         },
         providerPrompt(value: string, editor?: ICodeEditor) {
           if (!editor) {
             return value;
           }
-          const parseValue = value.replace('/Explain', '');
+          const parseValue = value.replace('/Polish', '');
           const model = editor.getModel();
-          return explainPrompt(model?.getLanguageId() || '', parseValue);
+          return polishPrompt(parseValue);
         },
         execute: (value: string, send: TChatSlashCommandSend, editor?: ICodeEditor) => {
-          const parseValue = interceptExecute(value, '/Explain', editor);
+          const parseValue = interceptExecute(value, '/Polish', editor);
 
           if (!parseValue) {
             return;
@@ -132,24 +138,24 @@ export class AINativeContribution implements ComponentContribution, AINativeCore
 
     registry.registerSlashCommand(
       {
-        name: 'Test',
-        description: '生成单测',
+        name: 'Summarize',
+        description: '总结',
         isShortcut: true,
-        tooltip: '生成单测'
+        tooltip: '总结'
       },
       {
         providerInputPlaceholder(_value, _editor) {
-          return '请输入或者粘贴代码';
+          return '请输入文字';
         },
         providerPrompt(value: string, editor?: ICodeEditor) {
           if (!editor) {
             return value;
           }
-          const parseValue = value.replace('/Text', '');
-          return testPrompt(parseValue);
+          const parseValue = value.replace('/Summarize', '');
+          return summarizePrompt(parseValue);
         },
         execute: (value: string, send: TChatSlashCommandSend, editor?: ICodeEditor) => {
-          const parseValue = interceptExecute(value, '/Text', editor);
+          const parseValue = interceptExecute(value, '/Summarize', editor);
 
           if (!parseValue) {
             return;
@@ -162,24 +168,24 @@ export class AINativeContribution implements ComponentContribution, AINativeCore
 
     registry.registerSlashCommand(
       {
-        name: 'Optimize',
-        description: '优化代码',
+        name: 'Expand',
+        description: '扩写',
         isShortcut: true,
-        tooltip: '优化代码'
+        tooltip: '扩写'
       },
       {
         providerInputPlaceholder(_value, _editor) {
-          return '请输入或者粘贴代码';
+          return '请输入文字';
         },
         providerPrompt(value: string, editor?: ICodeEditor) {
           if (!editor) {
             return value;
           }
-          const parseValue = value.replace('/Optimize', '');
-          return optimizePrompt(parseValue);
+          const parseValue = value.replace('/Expand', '');
+          return expandPrompt(parseValue);
         },
         execute: (value: string, send: TChatSlashCommandSend, editor?: ICodeEditor) => {
-          const parseValue = interceptExecute(value, '/Optimize', editor);
+          const parseValue = interceptExecute(value, '/Expand', editor);
 
           if (!parseValue) {
             return;
@@ -271,24 +277,27 @@ export class AINativeContribution implements ComponentContribution, AINativeCore
 
     registry.registerEditorInlineChat(
       {
-        id: `ai-${EInlineOperation.Explain}`,
-        name: EInlineOperation.Explain,
-        title: '解释代码',
+        id: `ai-${EInlineOperation.Polish}`,
+        name: EInlineOperation.Polish,
+        title: '润色',
         renderType: 'button',
         codeAction: {
           isPreferred: true,
         },
       },
       {
-        execute: (editor: ICodeEditor) => this.inlineChatOperationModel.Explain(editor)
+        execute: async (editor: ICodeEditor, token: CancellationToken) => {
+          await this.inlineChatOperationModel[EInlineOperation.Polish](editor, token);
+        }
       },
     );
 
+    // 翻译按钮
     registry.registerEditorInlineChat(
       {
-        id: `ai-${EInlineOperation.Comments}`,
-        name: EInlineOperation.Comments,
-        title: '添加注释',
+        id: `ai-${EInlineOperation.Translate}`,
+        name: EInlineOperation.Translate,
+        title: '翻译',
         renderType: 'button',
         codeAction: {
           isPreferred: true,
@@ -296,29 +305,36 @@ export class AINativeContribution implements ComponentContribution, AINativeCore
         },
       },
       {
-        providerDiffPreviewStrategy: (...args) => this.inlineChatOperationModel.Comments(...args),
+        execute: async (editor: ICodeEditor, token: CancellationToken) => {
+          await this.inlineChatOperationModel[EInlineOperation.Translate](editor, token);
+        }
       },
     );
 
+    // 总结按钮
     registry.registerEditorInlineChat(
       {
-        id: `ai-${EInlineOperation.Test}`,
-        name: EInlineOperation.Test,
-        title: '生成单测',
+        id: `ai-${EInlineOperation.Summarize}`,
+        name: EInlineOperation.Summarize,
+        title: '总结',
         renderType: 'button',
         codeAction: {
           isPreferred: true,
         },
       },
       {
-        execute: (editor: ICodeEditor) => this.inlineChatOperationModel.Test(editor),
+        execute: async (editor: ICodeEditor, token: CancellationToken) => {
+          await this.inlineChatOperationModel[EInlineOperation.Summarize](editor, token);
+        }
       },
     );
 
+    // 扩写按钮
     registry.registerEditorInlineChat(
       {
-        id: `ai-${EInlineOperation.Optimize}`,
-        name: EInlineOperation.Optimize,
+        id: `ai-${EInlineOperation.Expand}`,
+        name: EInlineOperation.Expand,
+        title: '扩写',
         renderType: 'dropdown',
         codeAction: {
           isPreferred: true,
@@ -326,7 +342,9 @@ export class AINativeContribution implements ComponentContribution, AINativeCore
         },
       },
       {
-        providerDiffPreviewStrategy: (...args) => this.inlineChatOperationModel.Optimize(...args),
+        execute: async (editor: ICodeEditor, token: CancellationToken) => {
+          await this.inlineChatOperationModel[EInlineOperation.Expand](editor, token);
+        }
       },
     );
 
@@ -350,8 +368,8 @@ export class AINativeContribution implements ComponentContribution, AINativeCore
           }
 
           if (
-            operation.startsWith(EInlineOperation.Explain) ||
-            operation.startsWith(EInlineOperation.Test)
+            operation.startsWith(EInlineOperation.Polish) ||
+            operation.startsWith(EInlineOperation.Translate)
           ) {
             return ERunStrategy.EXECUTE;
           }
@@ -383,7 +401,7 @@ export class AINativeContribution implements ComponentContribution, AINativeCore
             prompt += `：\n\`\`\`${model!.getLanguageId()}\n${crossCode}\n\`\`\``;
           }
 
-          const controller = new InlineChatController({ enableCodeblockRender: true });
+          const controller = new InlineChatController({ enableTextRender: true });
           const stream = await this.aiBackService.requestStream(prompt, {}, token);
           controller.mountReadable(stream);
 
@@ -545,7 +563,8 @@ ${editor.getModel()!.getValueInRange(editRange)}
         请根据 lint error 信息修复代码！
         不需要任何解释，只要返回修复后的代码块内容`;
 
-        const controller = new InlineChatController({ enableCodeblockRender: true });
+        // const controller = new InlineChatController({ enableCodeblockRender: true });
+        const controller = new InlineChatController({ enableTextRender: true });
         const stream = await this.aiBackService.requestStream(prompt, {}, token);
         controller.mountReadable(stream);
 
@@ -580,7 +599,8 @@ ${editor.getModel()!.getValueInRange(editRange)}
         const response = await this.aiBackService.request(prompt, {}, token);
 
         if (response.data) {
-          const controller = new InlineChatController({ enableCodeblockRender: true });
+          // const controller = new InlineChatController({ enableCodeblockRender: true });
+          const controller = new InlineChatController({ enableTextRender: true });
           const codeData = controller['calculateCodeBlocks'](response.data);
 
           return {
