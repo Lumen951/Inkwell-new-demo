@@ -108,7 +108,7 @@
     "@opensumi/ide-main-layout": "3.6.4",
     "@opensumi/ide-markdown": "3.6.4",
     "@opensumi/ide-markers": "3.6.4",
-    "@opensumi/ide-menu-bar": "3.6.4",
+    "@opensumi/ide-menu-bar": "3.7.0",
     "@opensumi/ide-monaco": "3.6.4",
     "@opensumi/ide-monaco-enhance": "3.6.4",
     "@opensumi/ide-opened-editor": "3.6.4",
