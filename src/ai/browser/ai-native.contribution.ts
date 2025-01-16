@@ -220,26 +220,30 @@ export class AINativeContribution implements ComponentContribution, AINativeCore
     );
   }
 
+  // 注册内联聊天功能
   registerInlineChatFeature(registry: IInlineChatFeatureRegistry) {
+    // 注册终端内联聊天功能，提供解释选中内容的功能
     registry.registerTerminalInlineChat(
       {
-        id: 'terminal-explain',
-        name: 'Explain',
-        title: '解释选中的内容'
+        id: 'terminal-explain', // 唯一标识符
+        name: 'Explain', // 功能名称
+        title: '解释选中的内容' // 功能标题
       },
       {
-        triggerRules: 'selection',
-        execute: async (stdout: string) => {
+        triggerRules: 'selection', // 触发规则为选中内容
+        execute: async (stdout: string) => { // 执行函数，接收终端输出
+          // 生成解释提示，调用 terminalDebugService 的 generatePrompt 方法
           const { message, prompt } = await this.terminalDebugService.generatePrompt({
-            type: MatcherType.base,
-            errorText: stdout,
-            operate: 'explain'
+            type: MatcherType.base, // 匹配器类型
+            errorText: stdout, // 传入的终端输出
+            operate: 'explain' // 操作类型为解释
           });
 
+          // 发送消息到聊天服务
           this.chatService.sendMessage({
-            message,
-            prompt,
-            reportType: 'terminal-selection-explain' as any
+            message, // 消息内容
+            prompt, // 提示内容
+            reportType: 'terminal-selection-explain' as any // 报告类型
           });
         },
       },
@@ -286,8 +290,9 @@ export class AINativeContribution implements ComponentContribution, AINativeCore
         },
       },
       {
-        execute: async (editor: ICodeEditor, token: CancellationToken) => {
-          await this.inlineChatOperationModel[EInlineOperation.Polish](editor, token);
+        execute: (editor: ICodeEditor) => {
+          // 直接调用 InlineChatOperationModel 中的润色方法，不需要等待返回值
+          this.inlineChatOperationModel[EInlineOperation.Polish](editor);
         }
       },
     );
@@ -305,8 +310,9 @@ export class AINativeContribution implements ComponentContribution, AINativeCore
         },
       },
       {
-        execute: async (editor: ICodeEditor, token: CancellationToken) => {
-          await this.inlineChatOperationModel[EInlineOperation.Translate](editor, token);
+        execute: (editor: ICodeEditor) => {
+          // 直接调用 InlineChatOperationModel 中的润色方法，不需要等待返回值
+          this.inlineChatOperationModel[EInlineOperation.Translate](editor);
         }
       },
     );
@@ -323,8 +329,9 @@ export class AINativeContribution implements ComponentContribution, AINativeCore
         },
       },
       {
-        execute: async (editor: ICodeEditor, token: CancellationToken) => {
-          await this.inlineChatOperationModel[EInlineOperation.Summarize](editor, token);
+        execute: (editor: ICodeEditor) => {
+          // 直接调用 InlineChatOperationModel 中的润色方法，不需要等待返回值
+          this.inlineChatOperationModel[EInlineOperation.Summarize](editor);
         }
       },
     );
@@ -342,8 +349,9 @@ export class AINativeContribution implements ComponentContribution, AINativeCore
         },
       },
       {
-        execute: async (editor: ICodeEditor, token: CancellationToken) => {
-          await this.inlineChatOperationModel[EInlineOperation.Expand](editor, token);
+        execute: (editor: ICodeEditor) => {
+          // 直接调用 InlineChatOperationModel 中的润色方法，不需要等待返回值
+          this.inlineChatOperationModel[EInlineOperation.Expand](editor);
         }
       },
     );
@@ -542,33 +550,39 @@ export class AINativeContribution implements ComponentContribution, AINativeCore
   }
 
 
+  // 注册问题修复功能
   registerProblemFixFeature(registry: IProblemFixProviderRegistry): void {
+    // 注册悬停修复提供者
     registry.registerHoverFixProvider({
+      // 提供修复的方法
       provideFix: async (
-        editor: ICodeEditor,
-        context: IProblemFixContext,
-        token: CancellationToken,
+        editor: ICodeEditor, // 编辑器实例
+        context: IProblemFixContext, // 上下文，包含问题信息
+        token: CancellationToken, // 取消令牌
       ): Promise<ChatResponse | InlineChatController> => {
-        const { marker, editRange } = context;
+        const { marker, editRange } = context; // 从上下文中解构出标记和编辑范围
 
+        // 构建提示信息，包含原始代码和 lint 错误信息
         const prompt = `原始代码内容:
 \`\`\`
-${editor.getModel()!.getValueInRange(editRange)}
+${editor.getModel()!.getValueInRange(editRange)} // 获取编辑范围内的代码
 \`\`\`
 
         lint error 信息:
         
-        ${marker.message}.
+        ${marker.message}. // 获取 lint 错误信息
 
-        请根据 lint error 信息修复代码！
+        请根据 lint error 信息修复代码！ // 请求修复代码的指示
         不需要任何解释，只要返回修复后的代码块内容`;
 
-        // const controller = new InlineChatController({ enableCodeblockRender: true });
+        // 创建一个新的 InlineChatController 实例，用于处理聊天交互
         const controller = new InlineChatController({ enableTextRender: true });
+        // 请求 AI 服务流，传入提示信息
         const stream = await this.aiBackService.requestStream(prompt, {}, token);
+        // 将可读流挂载到控制器上
         controller.mountReadable(stream);
 
-        return controller;
+        return controller; // 返回控制器
       },
     });
   }

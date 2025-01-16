@@ -14,75 +14,88 @@ export class InlineChatOperationModel {
   @Autowired(ChatServiceToken)
   private readonly aiChatService: ChatService;
 
+  // 定义一个私有方法 getCrossCode，接受一个 ICodeEditor 类型的参数 monacoEditor，返回一个字符串
   private getCrossCode(monacoEditor: ICodeEditor): string {
+    // 获取编辑器的模型
     const model = monacoEditor.getModel();
+    // 如果模型不存在，返回空字符串
     if (!model) {
       return '';
     }
 
+    // 获取当前选中的文本范围
     const selection = monacoEditor.getSelection();
 
+    // 如果没有选中内容，返回空字符串
     if (!selection) {
       return '';
     }
 
+    // 创建一个新的选择范围，起始位置为选中行的开始位置，结束位置为选中行的最大列数
     const crossSelection = selection
-      .setStartPosition(selection.startLineNumber, 1)
-      .setEndPosition(selection.endLineNumber, Number.MAX_SAFE_INTEGER);
+      .setStartPosition(selection.startLineNumber, 1) // 设置起始行的列为1
+      .setEndPosition(selection.endLineNumber, Number.MAX_SAFE_INTEGER); // 设置结束行为选中行的最大列数
+    // 获取在新选择范围内的代码
     const crossCode = model.getValueInRange(crossSelection);
+    // 返回获取到的代码
     return crossCode;
   }
 
-  public async [EInlineOperation.Polish](editor: ICodeEditor, token: CancellationToken): Promise<InlineChatController> {
+  // 定义一个异步方法，用于处理润色操作
+  public [EInlineOperation.Polish](editor: ICodeEditor): void {
     const text = this.getCrossCode(editor);
+    if (!text || text.trim() === '') {
+      return;
+    }
+
     const prompt = polishPrompt(text);
-  
-    const controller = new InlineChatController({ 
-      enableTextRender: true
-    } as InlineChatControllerOptions);
-    const stream = await this.aiBackService.requestStream(prompt, {}, token);
-    controller.mountReadable(stream);
-  
-    return controller;
+
+    this.aiChatService.sendMessage({
+      message: `润色以下文字: \n${text}`,
+      prompt: prompt,
+    });
   }
   
-  public async [EInlineOperation.Translate](editor: ICodeEditor, token: CancellationToken): Promise<InlineChatController> {
+  public [EInlineOperation.Translate](editor: ICodeEditor): void {
     const text = this.getCrossCode(editor);
+    if (!text || text.trim() === '') {
+      return;
+    }
+
     const prompt = translatePrompt(text);
-  
-    const controller = new InlineChatController({ 
-      enableTextRender: true
-    } as InlineChatControllerOptions);
-    const stream = await this.aiBackService.requestStream(prompt, {}, token);
-    controller.mountReadable(stream);
-  
-    return controller;
+
+    this.aiChatService.sendMessage({
+      message: `翻译以下文字: \n${text}`,
+      prompt: prompt,
+    });
   }
   
-  public async [EInlineOperation.Summarize](editor: ICodeEditor, token: CancellationToken): Promise<InlineChatController> {
+  public [EInlineOperation.Summarize](editor: ICodeEditor): void {
     const text = this.getCrossCode(editor);
+    if (!text || text.trim() === '') {
+      return;
+    }
+
     const prompt = summarizePrompt(text);
-  
-    const controller = new InlineChatController({ 
-      enableTextRender: true
-    } as InlineChatControllerOptions);
-    const stream = await this.aiBackService.requestStream(prompt, {}, token);
-    controller.mountReadable(stream);
-  
-    return controller;
+
+    this.aiChatService.sendMessage({
+      message: `总结以下文字: \n${text}`,
+      prompt: prompt,
+    });
   }
   
-  public async [EInlineOperation.Expand](editor: ICodeEditor, token: CancellationToken): Promise<InlineChatController> {
+  public [EInlineOperation.Expand](editor: ICodeEditor): void {
     const text = this.getCrossCode(editor);
+    if (!text || text.trim() === '') {
+      return;
+    }
+
     const prompt = expandPrompt(text);
-  
-    const controller = new InlineChatController({ 
-      enableTextRender: true
-    } as InlineChatControllerOptions);
-    const stream = await this.aiBackService.requestStream(prompt, {}, token);
-    controller.mountReadable(stream);
-  
-    return controller;
+
+    this.aiChatService.sendMessage({
+      message: `扩展以下文字: \n${text}`,
+      prompt: prompt,
+    });
   }
 
 }
