@@ -70,8 +70,8 @@ export const UpdateView = () => {
         <img src={logo} alt="logo" />
       </div>
       <div className={styles.body}>
-        <div className={styles.title}>CodeFuse IDE 有新版本更新</div>
-        <div className={styles.subtitle}>CodeFuse IDE {updateInfo.version} 可供下载，您现在的版本是 {process.env.IDE_VERSION}。</div>
+        <div className={styles.title}>Inkwell IDE 有新版本更新</div>
+        <div className={styles.subtitle}>Inkwell IDE {updateInfo.version} 可供下载，您现在的版本是 {process.env.IDE_VERSION}。</div>
         <div className={styles.changelogTitle}>更新日志：</div>
         <div
           className={styles.changelog}

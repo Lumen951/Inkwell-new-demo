@@ -23,7 +23,7 @@ import { listenReadable } from '@opensumi/ide-utils/lib/stream';
 
 import { AI_MENU_BAR_LEFT_ACTION, EInlineOperation } from './constants'
 import { LeftToolbar } from './components/left-toolbar'
-import { polishPrompt, translatePrompt, summarizePrompt, expandPrompt, detectIntentPrompt, RenamePromptManager, terminalCommandSuggestionPrompt, codeEditsLintErrorPrompt } from './prompt'
+import { polishPrompt, translatePrompt, summarizePrompt, expandPrompt, structurePrompt, detectIntentPrompt, RenamePromptManager, terminalCommandSuggestionPrompt, codeEditsLintErrorPrompt } from './prompt'
 import { CommandRender } from './command/command-render'
 import { AITerminalDebugService } from './ai-terminal-debug.service'
 import { InlineChatOperationModel } from './inline-chat-operation'
@@ -79,6 +79,7 @@ export class AINativeContribution implements ComponentContribution, AINativeCore
       ],
     );
 
+    // 定义一个函数 interceptExecute，用于处理输入的命令
     const interceptExecute = (value: string, slash: string, editor?: ICodeEditor): string => {
       if (!editor) {
         return '';
@@ -86,59 +87,65 @@ export class AINativeContribution implements ComponentContribution, AINativeCore
       const model = editor.getModel();
 
       const selection = editor.getSelection();
-      let selectCode: string | undefined;
+      let selectedText: string | undefined;
       if (selection) {
-        selectCode = model!.getValueInRange(selection);
+        selectedText = model!.getValueInRange(selection);
       }
 
       const parseValue = value.replace(slash, '');
 
+      // 如果命令后没有输入内容
       if (!parseValue.trim()) {
-        if (!selectCode) {
-          this.messageService.info('很抱歉，您并未选中或输入任何代码，请先选中或输入代码');
+        if (!selectedText) {
+          this.messageService.info('很抱歉，您并未选中或输入任何文字，请先选中或输入文字');
           return '';
         }
-
-        return value + `\n\`\`\`${model?.getLanguageId()}\n${selectCode}\n\`\`\``;
+        // 如果有选中文本，直接返回选中的文本
+        return selectedText;
       }
 
-      return value;
+      // 如果命令后有输入内容，直接返回解析后的值
+      return parseValue;
     };
 
+    // 注册一个斜杠命令，命令名称为“润色”
     registry.registerSlashCommand(
       {
-        name: 'Polish',
-        description: '润色',
-        isShortcut: true,
-        tooltip: '润色',
+        name: '润色', // 命令的名称
+        description: '润色', // 命令的描述
+        isShortcut: true, // 是否为快捷方式
+        tooltip: '润色', // 鼠标悬停时显示的提示信息
       },
       {
+        // 提供输入占位符，提示用户输入内容
         providerInputPlaceholder(_value, _editor) {
-          return '请输入文字';
+          return '请输入文字'; // 返回提示信息
         },
+        // 提供命令提示，处理用户输入的值
         providerPrompt(value: string, editor?: ICodeEditor) {
-          if (!editor) {
-            return value;
+          if (!editor) { // 如果没有编辑器实例
+            return value; // 直接返回输入的值
           }
-          const parseValue = value.replace('/Polish', '');
-          const model = editor.getModel();
-          return polishPrompt(parseValue);
+          const parseValue = value.replace('/Polish', ''); // 去掉命令前缀
+          const model = editor.getModel(); // 获取编辑器模型
+          return polishPrompt(parseValue); // 调用润色提示函数
         },
+        // 执行命令的逻辑
         execute: (value: string, send: TChatSlashCommandSend, editor?: ICodeEditor) => {
-          const parseValue = interceptExecute(value, '/Polish', editor);
+          const parseValue = interceptExecute(value, '/Polish', editor); // 处理输入的命令
 
-          if (!parseValue) {
-            return;
+          if (!parseValue) { // 如果没有解析到值
+            return; // 直接返回
           }
 
-          send(parseValue);
+          send(parseValue); // 发送解析后的值
         },
       },
     );
 
     registry.registerSlashCommand(
       {
-        name: 'Summarize',
+        name: '总结',
         description: '总结',
         isShortcut: true,
         tooltip: '总结'
@@ -168,7 +175,7 @@ export class AINativeContribution implements ComponentContribution, AINativeCore
 
     registry.registerSlashCommand(
       {
-        name: 'Expand',
+        name: '扩写',
         description: '扩写',
         isShortcut: true,
         tooltip: '扩写'
@@ -186,6 +193,37 @@ export class AINativeContribution implements ComponentContribution, AINativeCore
         },
         execute: (value: string, send: TChatSlashCommandSend, editor?: ICodeEditor) => {
           const parseValue = interceptExecute(value, '/Expand', editor);
+
+          if (!parseValue) {
+            return;
+          }
+
+          send(parseValue);
+        },
+      },
+    );
+
+    // 在 registerSlashCommand 部分添加
+    registry.registerSlashCommand(
+      {
+        name: '结构化写作',
+        description: '结构化写作',
+        isShortcut: true,
+        tooltip: '结构化写作',
+      },
+      {
+        providerInputPlaceholder(_value, _editor) {
+          return '请输入文字';
+        },
+        providerPrompt(value: string, editor?: ICodeEditor) {
+          if (!editor) {
+            return value;
+          }
+          const parseValue = value.replace('/Structure', '');
+          return structurePrompt(parseValue);
+        },
+        execute: (value: string, send: TChatSlashCommandSend, editor?: ICodeEditor) => {
+          const parseValue = interceptExecute(value, '/Structure', editor);
 
           if (!parseValue) {
             return;
@@ -218,6 +256,9 @@ export class AINativeContribution implements ComponentContribution, AINativeCore
         },
       },
     );
+
+    
+
   }
 
   // 注册内联聊天功能

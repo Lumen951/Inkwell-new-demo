@@ -1,4 +1,4 @@
-<h1 align="center">CodeFuse IDE</h1>
+<h1 align="center">Inkwell IDE</h1>
 
 <p align="center">AI Native IDE based on CodeFuse and OpenSumi.</p>
 

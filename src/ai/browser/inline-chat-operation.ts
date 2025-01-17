@@ -98,4 +98,18 @@ export class InlineChatOperationModel {
     });
   }
 
+  public [EInlineOperation.Structure](editor: ICodeEditor): void {
+    const text = this.getCrossCode(editor);
+    if (!text || text.trim() === '') {
+      return;
+    }
+
+    const prompt = structurePrompt(text);  // 需要在 prompt.ts 中定义这个函数
+
+    this.aiChatService.sendMessage({
+      message: `对以下文字进行结构化写作: \n${text}`,
+      prompt: prompt,
+    });
+  }
+
 }

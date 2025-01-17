@@ -106,7 +106,7 @@ export const HeaderBarTitleComponent = () => {
   const [appTitle, setAppTitle] = useState<string>('');
 
   useEffect(() => {
-    const defaultAppTitle = 'CodeFuse IDE'
+    const defaultAppTitle = 'Inkwell IDE'
     setAppTitle(headerService.appTitle || defaultAppTitle)
     const disposable = headerService.onTitleChanged((v) => {
       setAppTitle(v || defaultAppTitle);

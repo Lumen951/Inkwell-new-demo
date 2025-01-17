@@ -156,7 +156,7 @@ renderApp();
 
 async function renderApp() {
   const opts: IClientAppOpts = {
-    appName: 'CodeFuse IDE',
+    appName: 'Inkwell IDE',
     modules,
     layoutConfig,
     layoutComponent: AILayout,

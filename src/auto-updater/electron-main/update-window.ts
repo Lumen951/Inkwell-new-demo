@@ -34,7 +34,7 @@ export class UpdateWindow {
       maxWidth: 0,
       resizable: false,
       fullscreenable: false,
-      title: 'CodeFuse IDE Update',
+      title: 'Inkwell IDE Update',
       backgroundColor: '#ECECEC',
       webPreferences: {
         nodeIntegration: true,

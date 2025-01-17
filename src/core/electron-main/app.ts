@@ -109,7 +109,7 @@ export class ElectronMainApp {
               type: 'info',
               message: '无法移动到 Applications 目录',
               detail:
-                'Applications 目录已运行另一个版本的 CodeFuse IDE，请先关闭后重试。',
+                'Applications 目录已运行另一个版本的 Inkwell IDE，请先关闭后重试。',
             })
           }
           return true

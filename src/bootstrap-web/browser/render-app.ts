@@ -15,7 +15,7 @@ export async function renderApp(opts: IClientAppOpts) {
   const serverPort = process.env.DEVELOPMENT ? 8000 : window.location.port;
   const staticServerPort = process.env.DEVELOPMENT ? 8080 : window.location.port;
   const webviewEndpointPort = process.env.DEVELOPMENT ? 8899 : window.location.port;
-  opts.appName= 'CodeFuse IDE';
+  opts.appName= 'Inkwell IDE';
   opts.workspaceDir = opts.workspaceDir || query.get('workspaceDir') || process.env.WORKSPACE_DIR;
 
   opts.extensionDir = opts.extensionDir || process.env.EXTENSION_DIR;
