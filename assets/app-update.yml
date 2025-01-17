@@ -1,4 +1,4 @@
 provider: generic
 url: ''
 channel: latest
-updaterCacheDirName: CodeFuseIDE-updater
+updaterCacheDirName: InkwellIDE-updater

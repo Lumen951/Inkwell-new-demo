@@ -1,0 +1,81 @@
+.resize-handle-horizontal,
+.resize-handle-vertical {
+  z-index: var(--stacking-level-resize-handle, 12);
+}
+
+.resize-handle-horizontal {
+  cursor: col-resize;
+  position: relative;
+  height: 100%;
+  margin-right: -2px;
+  margin-left: -2px;
+  width: 4px;
+  transition: background-color 0.1s ease-out;
+  background: transparent;
+  &:hover {
+    background-color: var(--sash-hoverBorder);
+  }
+  &:hover.with-color::before {
+    background: none;
+  }
+  &::before {
+    content: '';
+    position: absolute;
+    left: 2px;
+    width: 1px;
+    height: 100%;
+    top: 0;
+  }
+}
+
+.resize-handle-vertical {
+  cursor: row-resize;
+  width: 100%;
+  position: relative;
+  margin-top: -2px;
+  margin-bottom: -2px;
+  height: 4px;
+  transition: background-color 0.1s ease-out;
+  background: transparent;
+  &:hover {
+    background-color: var(--sash-hoverBorder);
+  }
+  &:hover.with-color::before {
+    background: none;
+  }
+  &::before {
+    content: '';
+    position: absolute;
+    top: 2px;
+    height: 1px;
+    width: 100%;
+    left: 0;
+  }
+}
+
+.resize-overflow-hidden {
+  overflow: hidden !important;
+}
+
+.with-color::before {
+  background: var(--editorGroup-border);
+}
+.active {
+  background-color: var(--sash-hoverBorder);
+}
+.active.with-color::before {
+  background: none;
+}
+
+:global {
+  .no-resize {
+    cursor: auto;
+    &::before {
+      transition: background-color 0.1s ease-out;
+      background-color: var(--sideBar-border);
+    }
+    &:hover::before {
+      background-color: var(--sash-hoverBorder);
+    }
+  }
+}

@@ -1,0 +1,21 @@
+.markersContent {
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  box-sizing: border-box;
+
+  .empty {
+    color: var(--descriptionForeground);
+    margin: 10px 0 0 10px;
+    display: flex;
+    flex-direction: row;
+
+    .reset {
+      text-decoration: underline;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+}

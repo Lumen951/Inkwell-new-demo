@@ -1,0 +1,145 @@
+@import '@opensumi/ide-core-browser/lib/style/variable.less';
+
+:global {
+  .monaco-editor {
+    .dirty-diff-glyph {
+      margin-left: 5px;
+      cursor: pointer;
+      z-index: 5;
+    }
+
+    .dirty-diff-deleted::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      box-sizing: border-box;
+      width: 4px;
+      height: 0;
+      z-index: 9;
+      border-top: 4px solid transparent;
+      border-bottom: 4px solid transparent;
+      transition: border-top-width 80ms linear, border-bottom-width 80ms linear, bottom 80ms linear;
+      pointer-events: none;
+    }
+
+    .dirty-diff-glyph::before {
+      position: absolute;
+      content: '';
+      height: 100%;
+      width: 0;
+      left: -2px;
+      transition: width 80ms linear, left 80ms linear;
+    }
+
+    .dirty-diff-deleted::before {
+      margin-left: 3px;
+      height: 0;
+      bottom: 0;
+      transition: height 80ms linear;
+    }
+
+    .margin-view-overlays > div:hover > .dirty-diff-glyph::before {
+      position: absolute;
+      content: '';
+      height: 100%;
+      width: 9px;
+      left: -6px;
+    }
+
+    .margin-view-overlays > div:hover > .dirty-diff-deleted::after {
+      bottom: 0;
+      border-top-width: 0;
+      border-bottom-width: 0;
+    }
+
+    /* Hide glyph decorations when inside the inline diff editor */
+    &.modified-in-monaco-diff-editor .margin-view-overlays > div > .dirty-diff-glyph {
+      display: none;
+    }
+
+    .dirty-diff-modified {
+      border-left: 3px solid var(--editorGutter-modifiedBackground);
+
+      &::before {
+        background: var(--editorGutter-modifiedBackground);
+      }
+    }
+
+    .dirty-diff-added {
+      border-left: 3px solid var(--editorGutter-addedBackground);
+
+      &::before {
+        background: var(--editorGutter-addedBackground);
+      }
+    }
+
+    .dirty-diff-deleted {
+      &::after {
+        border-left: 4px solid var(--editorGutter-deletedBackground);
+      }
+
+      &::before {
+        background: var(--editorGutter-deletedBackground);
+      }
+    }
+
+    .dirty-diff-modified,
+    .dirty-diff-added {
+      border-left-width: 3px;
+    }
+  }
+
+  .dirty-diff-widget-wrapper {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .dirty-diff-widget-header {
+    min-height: 24px;
+    width: 100%;
+    border-top: 1px solid;
+    border-bottom: 1px solid;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--peekViewTitle-background);
+
+    .file-name {
+      flex: 1;
+      margin-left: 20px;
+    }
+
+    .file-actions {
+      width: 100px;
+      display: flex;
+      justify-content: flex-end;
+      cursor: pointer;
+
+      .kt-icon {
+        padding: 3px;
+        &:hover {
+          border-radius: 4px;
+          background-color: var(--kt-icon-hoverBackground);
+        }
+      }
+
+      .iconfont-rotate-180 {
+        transform: rotate(180deg) translateY(-2px);
+      }
+    }
+
+    .dirty-diff-widget-title-detail {
+      margin-left: 4px;
+      font-size: 12px;
+      opacity: 0.5;
+    }
+  }
+
+  .dirty-diff-widget-content {
+    flex: 1;
+    width: 100%;
+    border-bottom: 1px solid;
+  }
+}

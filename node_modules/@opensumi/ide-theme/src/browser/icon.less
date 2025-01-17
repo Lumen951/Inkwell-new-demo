@@ -1,0 +1,15 @@
+.kaitian-icon {
+  // 背景和 mask 模式，需要设置元素的默认宽高，否则不会显示
+  &.background-mode,
+  &.mask-mode {
+    width: 16px;
+    height: 16px;
+    line-height: 16px;
+  }
+  &.mask-mode {
+    // mask 模式下也需要指定大小
+    -webkit-mask-size: 16px;
+    // 默认颜色未当前前景色
+    background: currentColor;
+  }
+}

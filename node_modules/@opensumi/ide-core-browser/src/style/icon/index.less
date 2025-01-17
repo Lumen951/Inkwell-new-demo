@@ -1,0 +1,67 @@
+/**
+ * Ref: https://github.com/Microsoft/vscode/tree/master/extensions/theme-seti/icons
+ */
+@import './fileicons.less';
+@import './symbol-icons/symbol-icons.css';
+
+.kt_display_none {
+  display: none !important;
+}
+
+.icon-label::before {
+  background-size: 16px;
+  background-position: 0;
+  background-repeat: no-repeat;
+  padding-right: 6px;
+  width: 16px;
+  height: 22px;
+  display: inline-flex;
+  align-items: center;
+  -webkit-font-smoothing: antialiased;
+  flex-shrink: 0;
+}
+.action-icon {
+  width: 16px;
+  height: 22px;
+  background-size: 16px;
+  background-position: 50%;
+  background-repeat: no-repeat;
+  margin-right: 0;
+}
+
+.kaitian-icon[class*='kticon-'] {
+  font: normal normal normal 16px/1 'kaitian-icon';
+  display: inline-block;
+  text-decoration: none;
+  text-rendering: auto;
+  text-align: center;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+
+.kaitian-icon {
+  &::before {
+    font-family: 'kaitian-icon';
+  }
+  &.menu-icon {
+    height: 16px;
+    margin-top: 5px;
+  }
+  &.toggled {
+    height: 16px;
+    border-radius: 2px;
+    background-color: var(--inputOption-activeBorder);
+    line-height: 16px;
+  }
+  &.kticon-up.toggled {
+    background-color: unset;
+    transform: rotate(180deg);
+  }
+}
+.circle {
+  border-radius: 50%;
+  border: none;
+}

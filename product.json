@@ -1,8 +1,8 @@
 {
   "productName": "Inkwell IDE",
-  "applicationName": "CodeFuseIDE",
-  "dataFolderName": ".codefuse-ide",
-  "urlProtocol": "codefuse-ide",
+  "applicationName": "Inkwell",
+  "dataFolderName": ".inkwell-ide",
+  "urlProtocol": "inkwell-ide",
   "darwinBundleIdentifier": "com.alipay.codefuse.ide",
   "autoUpdaterConfigUrl": "https://render.alipay.com/p/yuyan/codefuse-ide-data_auto-update/zh_CN.json",
   "commit": "",

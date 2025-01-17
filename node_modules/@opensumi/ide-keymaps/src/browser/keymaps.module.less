@@ -1,0 +1,409 @@
+.keybinding_container {
+  padding: 11px 0 0 27px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  box-sizing: border-box;
+  width: calc(100% - 22px);
+  &:hover {
+    .keybinding_list_item_box {
+      border-left: 1px solid var(--sideBar-border);
+      border-bottom: 1px solid var(--sideBar-border);
+      &:nth-child(4) {
+        border-right: 1px solid var(--sideBar-border);
+      }
+    }
+    .keybinding_header {
+      border-top: 1px solid var(--sideBar-border);
+      border-bottom: 1px solid var(--sideBar-border);
+      .keybinding_header_item {
+        border-left: 1px solid var(--sideBar-border);
+        &:nth-child(4) {
+          border-right: 1px solid var(--sideBar-border);
+        }
+      }
+    }
+  }
+}
+
+.keybinding_searchbar {
+  padding: 0 0 10px 0;
+  display: flex;
+  flex-direction: row;
+  box-sizing: content-box;
+  font-size: 14px;
+}
+
+.keybinding_header {
+  display: flex;
+  flex-direction: row;
+  box-sizing: border-box;
+  font-size: 13px;
+  font-weight: bolder;
+  height: 40px;
+  line-height: 40px;
+  border-top: 1px solid transparent;
+  border-bottom: 1px solid transparent;
+  .keybinding_header_item {
+    &:nth-child(4) {
+      border-right: 1px solid transparent;
+    }
+  }
+}
+
+.keybinding_body {
+  position: relative;
+  height: calc(100% - 56px);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  .keybinding_loading {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: var(--background);
+    opacity: 0.3;
+    top: 0;
+    left: 0;
+  }
+}
+
+.keybinding_list {
+  flex: 1;
+}
+
+.keybinding_list_header {
+  background-color: hsla(0, 0%, 51%, 0.04);
+  height: 30px;
+  line-height: 30px;
+}
+
+.keybinding_key_input_container {
+  position: relative;
+  height: 30px;
+  width: 100%;
+  &:hover {
+    .keybinding_optional_actions {
+      z-index: 999;
+      display: flex;
+    }
+    .keybinding_key_input_placeholder {
+      display: none;
+    }
+  }
+}
+
+.keybinding_detective_messages {
+  z-index: 100;
+  position: absolute;
+  left: 0;
+  top: 40px;
+  max-height: 175px;
+  min-width: 100%;
+  padding: 10px;
+  max-width: 600px;
+  background: var(--kt-selectDropdown-background);
+  box-shadow: 0 9px 28px 8px rgba(0, 0, 0, 0.15), 0 6px 16px 0 rgba(0, 0, 0, 0.4), 0 3px 6px -4px rgba(0, 0, 0, 0.4);
+  border-radius: 2px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  .keybinding_detective_messages_label {
+    color: var(--descriptionForeground);
+    text-align: left;
+    line-height: 20px;
+    font-size: 12px;
+    text-align: left;
+    line-height: 20px;
+    width: 172px;
+    height: 20px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    margin-bottom: 5px;
+  }
+  ul,
+  li {
+    margin: 0;
+    padding: 0;
+  }
+  .keybinding_detective_messages_container {
+    display: flex;
+    flex-direction: column;
+
+    .keybinding_detective_messages_item {
+      display: flex;
+      flex-direction: column;
+      .title {
+        text-align: left;
+        line-height: 20px;
+        font-size: 12px;
+        color: var(--foreground);
+        text-align: left;
+        line-height: 20px;
+        height: 20px;
+        width: 100%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+      .description {
+        text-align: left;
+        line-height: 20px;
+        font-size: 12px;
+        color: var(--descriptionForeground);
+        text-align: left;
+        line-height: 20px;
+        height: 20px;
+        width: 100%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+
+        display: flex;
+        align-items: center;
+      }
+    }
+  }
+}
+
+.keybinding_key_input_placeholder {
+  z-index: 100;
+  position: absolute;
+  right: 5px;
+  top: 0;
+  align-items: center;
+  justify-content: center;
+  color: var(--inputicon-foreground);
+  width: 16px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+}
+
+.keybinding_key_input,
+.keybinding_key {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  position: relative;
+  overflow: hidden;
+}
+
+.keybinding_key_block {
+  display: flex;
+  margin-right: 5px;
+}
+
+.keybinding_key_item {
+  display: block;
+  border-radius: 2px;
+  background-color: rgba(134, 140, 145, 0.1);
+  font-size: 12px;
+  padding: 1px 6px;
+  height: 20px;
+  line-height: 17px;
+  margin-right: 3px;
+  text-align: center;
+  border-bottom: 2px solid rgba(25, 25, 25, 0.1);
+}
+
+.keybinding_list_container {
+  width: 100%;
+  border-spacing: 0;
+  border-collapse: separate;
+  height: calc(100% - 30px);
+  span {
+    display: inline-block;
+  }
+}
+
+.keybinding_list_item {
+  cursor: default;
+  display: flex;
+  height: 40px;
+  flex-direction: row;
+  line-height: 40px;
+  position: relative;
+  match {
+    color: #ff7673;
+  }
+
+  .keybinding_list_item_box {
+    align-items: center;
+    width: 25%;
+    font-size: 12px;
+    border-left: 1px solid transparent;
+    border-bottom: 1px solid transparent;
+    box-sizing: border-box;
+    padding-left: 30px;
+    height: 40px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    &:nth-child(1) {
+      width: 30%;
+    }
+    &:nth-child(4) {
+      width: 20%;
+      border-right: 1px solid transparent;
+    }
+    &:hover {
+      .keybinding_optional_actions {
+        display: flex;
+      }
+    }
+  }
+  .keybinding_command {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  .limit_warp {
+    font-size: 13px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .command_name {
+    height: 20px;
+    font-size: 13px;
+    line-height: 20px;
+    text-align: left;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 100%;
+    margin-top: 2px;
+  }
+
+  .command_id {
+    height: 16px;
+    line-height: 16px;
+    text-align: left;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 12px;
+    opacity: 0.6;
+    width: 100%;
+  }
+
+  &.odd {
+    background-color: hsla(0, 0%, 51%, 0.04);
+  }
+
+  .keybinding_inline_action {
+    display: none;
+    height: 40px;
+    line-height: 40px;
+    width: 20px;
+    text-align: left;
+    text-align: center;
+    cursor: pointer;
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+
+  .keybinding_action {
+    display: none;
+    position: absolute;
+    right: 5px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    z-index: 10;
+    cursor: pointer;
+  }
+
+  &:hover {
+    color: var(--list-hoverForeground);
+    background-color: var(--list-hoverBackground);
+
+    .keybinding_action,
+    .keybinding_inline_action {
+      display: inline-block;
+    }
+  }
+}
+
+.keybinding_header_item {
+  width: 25%;
+  border-left: 1px solid transparent;
+  box-sizing: border-box;
+  padding-left: 30px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  height: 40px;
+  line-height: 40px;
+  &:nth-child(1) {
+    width: 30%;
+  }
+  &:nth-child(4) {
+    width: 20%;
+  }
+}
+
+.search_container {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  &:hover {
+    .keybinding_optional_actions {
+      display: flex;
+    }
+  }
+}
+
+.search_input {
+  height: 40px;
+  width: 100%;
+}
+
+.keybinding_optional_actions {
+  position: absolute;
+  right: 5px;
+  top: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  .keybinding_optional_action {
+    cursor: pointer;
+    color: var(--inputicon-foreground);
+    display: block;
+    font-size: 14px;
+    width: 16px;
+    height: 16px;
+    line-height: 16px;
+    text-align: center;
+  }
+}
+
+.search_inline_action {
+  height: 100%;
+  padding: 0 5px;
+  line-height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  &_icon {
+    display: block;
+    height: 18px;
+    width: 18px;
+    text-align: center;
+    box-sizing: content-box;
+    border: 1px solid transparent;
+    cursor: pointer;
+    &.active {
+      border: 1px solid var(--focusBorder);
+    }
+  }
+}

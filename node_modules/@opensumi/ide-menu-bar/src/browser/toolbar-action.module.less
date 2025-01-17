@@ -1,0 +1,25 @@
+/*
+@deprecated
+*/
+.toolbarActionsWrapper {
+  display: flex;
+  justify-content: space-between;
+  .toolbarActions {
+    &.toolbarActionsLeft {
+      flex-shrink: 0;
+    }
+    &.toolbarActionsRight {
+      flex-grow: 1;
+    }
+    padding: 0 10px;
+    height: 27px;
+    background-color: var(--kt-menubar-background);
+
+    :global(.kt-toolbar-location-visible) {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      height: 100%;
+    }
+  }
+}

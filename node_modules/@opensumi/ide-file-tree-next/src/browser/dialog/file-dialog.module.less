@@ -1,0 +1,83 @@
+.file_dialog_wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.file_dialog_area {
+  overflow: hidden;
+}
+
+.file_dialog_content {
+  width: 100%;
+  height: 300px;
+  margin-top: 15px;
+  position: relative;
+  background-color: var(--sideBar-background);
+}
+
+.file_dialog_title {
+  font-size: 14px;
+}
+
+.file_dialog_directory {
+  width: 100%;
+  margin-top: 10px;
+  outline: 0;
+}
+
+.file_dialog_directory_title {
+  font-size: 14px;
+  width: 100%;
+  text-align: left;
+}
+
+.file_dialog_message {
+  margin-top: 10px;
+}
+
+.select_control {
+  width: 100%;
+}
+
+.file_dialog_buttons {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 14px;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+.button {
+  margin: 10px 0 0 8px;
+}
+
+.file_dialog_file_name {
+  margin-right: 10px;
+  word-break: keep-all;
+  word-spacing: normal;
+  white-space: nowrap;
+}
+
+.file_dialog_file_container {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.file_dialog_wrapper {
+  :global {
+    .kt-modal-close-x {
+      margin: 10px 18px 0 0;
+      width: 12px;
+      height: 12px;
+      line-height: 20px;
+      color: var(--kt-notificationsCloseIcon-foreground);
+    }
+
+    .kt-modal-body {
+      padding-bottom: 8px;
+    }
+  }
+}

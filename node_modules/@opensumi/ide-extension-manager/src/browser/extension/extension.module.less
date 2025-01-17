@@ -1,0 +1,107 @@
+.extension_item {
+  min-height: 62px;
+  font-size: 12px;
+  display: flex;
+  box-sizing: border-box;
+  padding-left: 10px;
+  overflow: hidden;
+  align-items: center;
+  max-width: 100%;
+  cursor: pointer;
+
+  &:hover {
+    background: var(--list-hoverBackground);
+  }
+
+  .icon {
+    position: relative;
+    height: 36px;
+    width: 36px;
+    flex-shrink: 0;
+    object-fit: contain;
+    margin-right: 10px;
+  }
+
+  .default_icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    height: 36px;
+    width: 36px;
+    flex-shrink: 0;
+    object-fit: contain;
+    margin-right: 10px;
+    background-color: #f1f2f2;
+    border-radius: 50%;
+
+    :global {
+      .kaitian-icon {
+        font-size: 22px;
+        color: #d8d9d9;
+      }
+    }
+  }
+
+  .extension_detail {
+    flex: 1;
+    padding: 4px 0;
+    padding-right: 10px;
+    max-width: calc(100% - 40px);
+    overflow: hidden;
+    .base_info {
+      line-height: 20px;
+      height: 20px;
+      display: flex;
+      overflow: hidden;
+      justify-content: space-between;
+      white-space: nowrap;
+
+      .display_name {
+        font-size: 13px;
+        font-weight: bold;
+        overflow: hidden;
+        white-space: nowrap;
+        flex: 1;
+        text-overflow: ellipsis;
+      }
+
+      .version {
+        margin-left: 6px;
+        font-size: 12px;
+        color: var(--descriptionForeground);
+      }
+
+      .download_count {
+        margin: 0px 6px;
+        color: var(--descriptionForeground);
+      }
+    }
+
+    .description {
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      display: block;
+      color: var(--descriptionForeground);
+      max-width: calc(100% - 42px);
+    }
+
+    .footer {
+      display: flex;
+      height: 20px;
+      line-height: 20px;
+      margin-top: 5px;
+      .namespace {
+        font-weight: bold;
+        flex: 1;
+        color: var(--descriptionForeground);
+      }
+
+      button {
+        height: 20px;
+        line-height: 20px;
+      }
+    }
+  }
+}

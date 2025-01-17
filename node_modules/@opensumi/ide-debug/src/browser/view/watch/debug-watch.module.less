@@ -1,0 +1,181 @@
+@import '@opensumi/ide-core-browser/lib/style/variable.less';
+
+.debug_watch_node {
+  height: 22px;
+  line-height: 22px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  cursor: pointer;
+  user-select: none;
+
+  &:hover {
+    color: var(--kt-tree-hoverForeground);
+    background: var(--kt-tree-hoverBackground);
+  }
+
+  .debug_watch_node_prompt_box {
+    :global(input) {
+      &.validate-error {
+        color: var(--inputValidation-errorForeground);
+        background-color: var(--inputValidation-errorBackground);
+        border: 1px solid var(--inputValidation-errorBorder);
+      }
+
+      &.validate-info {
+        background-color: var(--inputValidation-infoBackground);
+        border: 1px solid var(--inputValidation-infoBorder);
+        color: var(--inputValidation-infoForeground);
+      }
+
+      &.validate-warning {
+        background-color: var(--inputValidation-warningBackground);
+        border: 1px solid var(--inputValidation-warningBorder);
+        color: var(--inputValidation-warningForeground);
+      }
+    }
+  }
+
+  &.mod_selected {
+    color: var(--kt-tree-inactiveSelectionForeground) !important;
+    background: var(--kt-tree-inactiveSelectionBackground);
+  }
+
+  &.mod_focused {
+    outline: 1px solid var(--list-focusOutline);
+    outline-offset: -1px;
+  }
+
+  &.mod_actived {
+    outline: 1px solid var(--list-focusOutline);
+    outline-offset: -1px;
+  }
+
+  &.mod_loading {
+    opacity: 0.8;
+  }
+}
+
+.debug_watch_node_content {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  user-select: text;
+  match {
+    background-color: var(--editor-findMatchHighlightBackground);
+  }
+}
+
+.debug_watch_node_inputbox {
+  display: inline-block;
+  width: 100%;
+  input {
+    font-size: @base-font-size;
+  }
+}
+
+.debug_watch_node_status {
+  opacity: 0.75;
+  text-align: center;
+  font-size: 12px;
+  padding-right: 0;
+}
+
+.debug_watch_node_segment {
+  flex-grow: 0;
+  white-space: nowrap;
+  color: inherit;
+}
+
+.debug_watch_node_displayname {
+  margin-right: 6px;
+  display: inline;
+  white-space: pre;
+}
+
+.debug_watch_node_description {
+  display: inline;
+  transform: scale(0.96);
+  color: var(--descriptionForeground);
+}
+
+.debug_watch_node_overflow_wrap {
+  flex: 1;
+  flex-shrink: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  text-align: left;
+  color: var(--foreground);
+}
+
+.debug_watch_node_prompt_wrap {
+  flex: 1;
+}
+
+.expansion_toggle {
+  min-width: 20px;
+  display: flex;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 16px;
+  color: var(--foreground);
+  position: absolute;
+  left: -20px;
+  &:before {
+    font-size: 13px;
+  }
+  &.mod_collapsed {
+    &:before {
+      display: block;
+    }
+  }
+
+  &:not(.mod_collapsed) {
+    &:before {
+      display: block;
+      transform: rotate(90deg);
+    }
+  }
+}
+
+.debug_watch_node_tail {
+  text-align: center;
+  margin-right: 10px;
+  position: relative;
+  height: 22px;
+  display: flex;
+  align-items: center;
+}
+
+// variable
+.debug_watch_variable {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  overflow: visible;
+  &.value {
+    color: var(--debugTokenExpression-value);
+  }
+
+  &.name {
+    color: var(--debugTokenExpression-name);
+  }
+
+  &.error {
+    color: var(--debugTokenExpression-error);
+  }
+
+  &.number {
+    color: var(--debugTokenExpression-number);
+  }
+
+  &.boolean {
+    color: var(--debugTokenExpression-boolean);
+  }
+
+  &.string {
+    color: var(--debugTokenExpression-string);
+  }
+}

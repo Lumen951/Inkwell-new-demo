@@ -1,0 +1,54 @@
+@import '@opensumi/ide-core-browser/lib/style/variable.less';
+
+.scmHeader {
+  padding: 0 8px;
+  margin-bottom: 10px;
+
+  display: flex;
+  align-items: center;
+}
+
+// Input
+.scmInput {
+  flex: 1;
+}
+
+.scmMenu {
+  padding: 0 8px;
+  margin-bottom: 10px;
+  :global {
+    .kt-button {
+      height: 28px;
+      border: 1px;
+      border-radius: 0;
+      flex: 1;
+      overflow: hidden;
+    }
+    .secondary-button {
+      margin-left: 0;
+      margin-left: 0;
+      flex: 0 0 30px;
+      position: relative;
+      color: var(--kt-primaryButton-foreground);
+      background-color: var(--kt-primaryButton-background);
+      &:hover {
+        background-color: var(--kt-primaryButton-hoverBackground);
+        color: var(--kt-primaryButton-foreground);
+      }
+      &::before {
+        content: '';
+        position: absolute;
+        height: 20px;
+        width: 1px;
+        left: 0;
+        top: 4px;
+        background-color: var(--kt-primaryButton-foreground);
+      }
+      &:disabled {
+        &::before {
+          background-color: var(--kt-primaryButton-disableForeground);
+        }
+      }
+    }
+  }
+}

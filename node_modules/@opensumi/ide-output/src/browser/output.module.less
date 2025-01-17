@@ -1,0 +1,43 @@
+@import '@opensumi/ide-core-browser/lib/style/variable.less';
+
+.output {
+  font-size: @base-font-size;
+  color: var(--foreground);
+  height: 100%;
+  overflow: auto;
+  user-select: text;
+  background-color: var(--kt-panelTitle-background) !important;
+
+  .overlay {
+    position: absolute;
+    top: -28px;
+    right: 0;
+    margin: 6px;
+    display: flex;
+    z-index: 1000;
+  }
+
+  .clear {
+    background-position: center;
+    background-repeat: no-repeat;
+    display: inline-block;
+    width: 21px;
+    line-height: 21px;
+    opacity: 0.25;
+    &.enabled {
+      opacity: 0.7;
+    }
+    &:hover {
+      opacity: 1;
+    }
+  }
+}
+
+.output-tab-icon::before {
+  content: '\f024';
+}
+
+.select {
+  width: auto !important;
+  min-width: 150px !important;
+}

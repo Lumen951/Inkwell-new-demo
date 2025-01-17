@@ -1,0 +1,31 @@
+@default_height: 24px;
+@default_line_height: 22px;
+
+.ai_inline_result_panel {
+  display: flex;
+  align-items: center;
+  height: @default_height;
+  padding: 1px 8px;
+  justify-content: space-between;
+
+  .side {
+    display: flex;
+    align-items: center;
+    .operate_btn {
+      height: @default_line_height;
+      line-height: @default_line_height;
+      padding: 0 6px;
+      margin: 0 2px;
+
+      &.default {
+        background-color: var(--kt-primaryButton-hoverBackground);
+      }
+    }
+    .operate_icon {
+      width: @default_line_height;
+      height: @default_line_height;
+      line-height: @default_line_height;
+      border-radius: 4px;
+    }
+  }
+}

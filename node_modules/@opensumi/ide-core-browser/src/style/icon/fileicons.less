@@ -1,0 +1,20 @@
+.default-file-icons.show-file-icons {
+  .folder-icon::before,
+  .rootfolder-icon::before {
+    content: ' ';
+    mask: data-uri('./fileicons/folder-default.svg') no-repeat 0 0;
+    mask-size: 14px;
+    background-color: var(--foreground);
+  }
+  .file-icon::before {
+    content: ' ';
+    mask: data-uri('./fileicons/file-default.svg') no-repeat 0 0;
+    mask-size: 14px;
+    background-color: var(--foreground);
+  }
+}
+.file-icon,
+.folder-icon,
+.symbol-icon {
+  display: flex;
+}

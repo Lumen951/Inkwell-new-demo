@@ -1,0 +1,46 @@
+.action {
+  color: var(--tab-activeForeground);
+  cursor: pointer;
+  &.active {
+    transform: scale(1.1);
+  }
+  margin: 0 5px;
+}
+
+#space1 {
+  display: block;
+}
+
+.tool-bar {
+  min-height: 0;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  background: var(--kt-menubar-background);
+  > div {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    > :global(.kt-toolbar-location-visible) {
+      padding: 5px 5px;
+    }
+  }
+  .left :global(.kt-toolbar-location-visible) {
+    justify-content: left;
+    height: 100%;
+  }
+  .right :global(.kt-toolbar-location-visible) {
+    justify-content: flex-end;
+    height: 100%;
+    overflow: hidden;
+  }
+  .center :global(.kt-toolbar-location-visible) {
+    justify-content: center;
+    height: 100%;
+    padding: 0 30px;
+  }
+
+  :global(.iconfont) {
+    font-size: 16px;
+  }
+}

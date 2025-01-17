@@ -1,0 +1,157 @@
+@top_stack_frame_line_bg_color: #ffff6673;
+@dark_top_stack_frame_line_bg_color: #ffff0033;
+@focused_stack_frame_line_bg_color: #cee7ce73;
+@dark_focused_stack_frame_line_bg_color: #7abd7a4d;
+@dark_exception_line_bg_color: #6c2022;
+
+.sumi-breakpoint-icon-size {
+  background-size: 16px 16px;
+  cursor: pointer;
+}
+// 全局调试样式
+.sumi-debug-breakpoint {
+  background: url('./assets/breakpoint.svg') center center no-repeat;
+  .sumi-breakpoint-icon-size;
+}
+
+.sumi-debug-breakpoint-disabled {
+  background: url('./assets/breakpoint-disabled.svg') center center no-repeat;
+  .sumi-breakpoint-icon-size;
+}
+
+.sumi-debug-breakpoint-unverified {
+  background: url('./assets/breakpoint-unverified.svg') center center no-repeat;
+  .sumi-breakpoint-icon-size;
+}
+
+.sumi-debug-breakpoint-unsupported {
+  background: url('./assets/breakpoint-unsupported.svg') center center no-repeat;
+  .sumi-breakpoint-icon-size;
+}
+
+.sumi-debug-conditional-breakpoint {
+  background: url('./assets/breakpoint-conditional.svg') center center no-repeat;
+  .sumi-breakpoint-icon-size;
+}
+
+.sumi-debug-conditional-breakpoint-disabled {
+  background: url('./assets/breakpoint-conditional-disabled.svg') center center no-repeat;
+  .sumi-breakpoint-icon-size;
+}
+
+.sumi-debug-conditional-breakpoint-unverified {
+  background: url('./assets/breakpoint-conditional-unverified.svg') center center no-repeat;
+  .sumi-breakpoint-icon-size;
+}
+
+.sumi-debug-logpoint {
+  background: url('./assets/breakpoint-log.svg') center center no-repeat;
+  .sumi-breakpoint-icon-size;
+}
+
+.sumi-debug-logpoint-disabled {
+  background: url('./assets/breakpoint-log-disabled.svg') center center no-repeat;
+  .sumi-breakpoint-icon-size;
+}
+
+.sumi-debug-logpoint-unverified {
+  background: url('./assets/breakpoint-log-unverified.svg') center center no-repeat;
+  .sumi-breakpoint-icon-size;
+}
+
+.monaco-editor .sumi-debug-breakpoint-hint {
+  background: url('./assets/breakpoint-hint.svg') center center no-repeat;
+  .sumi-breakpoint-icon-size;
+}
+
+.monaco-editor .sumi-debug-top-stack-frame {
+  background: url('./assets/current-arrow.svg') center center no-repeat;
+  .sumi-breakpoint-icon-size;
+}
+
+.monaco-editor .sumi-debug-top-stack-frame {
+  &.sumi-debug-breakpoint,
+  &.sumi-debug-conditional-breakpoint,
+  &.logpoint {
+    background: url('./assets/current-and-breakpoint.svg') center center no-repeat;
+    .sumi-breakpoint-icon-size;
+  }
+}
+
+.monaco-editor .view-overlays .sumi-debug-top-stack-frame-line {
+  background-color: @top_stack_frame_line_bg_color;
+}
+
+.monaco-editor.vs-dark .view-overlays .sumi-debug-top-stack-frame-line {
+  background-color: @dark_top_stack_frame_line_bg_color;
+}
+
+@keyframes slide-out {
+  100% {
+    background-color: transparent;
+  }
+}
+
+.monaco-editor .view-overlays .sumi-focus-breakpoints-stack-frame-line,
+.monaco-editor.vs-dark .view-overlays .sumi-focus-breakpoints-stack-frame-line {
+  animation: slide-out 0.3s;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-in;
+  animation-fill-mode: forwards;
+  -webkit-animation-fill-mode: forwards;
+}
+
+.monaco-editor .view-overlays .sumi-focus-breakpoints-stack-frame-line {
+  background-color: @top_stack_frame_line_bg_color;
+}
+
+.monaco-editor.vs-dark .view-overlays .sumi-focus-breakpoints-stack-frame-line {
+  background-color: @dark_top_stack_frame_line_bg_color;
+}
+
+.monaco-editor .sumi-debug-focused-stack-frame {
+  background: url('./assets/stackframe-arrow.svg') center center no-repeat;
+  .sumi-breakpoint-icon-size;
+}
+
+.monaco-editor .sumi-debug-focused-stack-frame.sumi-debug-breakpoint {
+  background: url('./assets/stackframe-and-breakpoint.svg') center center no-repeat;
+  .sumi-breakpoint-icon-size;
+}
+
+.monaco-editor .view-overlays .sumi-debug-focused-stack-frame-line {
+  background-color: @focused_stack_frame_line_bg_color;
+}
+
+.monaco-editor.vs-dark .view-overlays .sumi-debug-focused-stack-frame-line {
+  background-color: @dark_focused_stack_frame_line_bg_color;
+}
+
+.monaco-editor.vs-dark .view-overlays .sumi-debug-top-stack-frame-exception-line {
+  background-color: @dark_exception_line_bg_color;
+}
+
+.inline-breakpoint-widget.codicon {
+  display: flex !important;
+  align-items: center;
+}
+
+.inline-breakpoint-widget.codicon-debug-breakpoint-disabled {
+  opacity: 0.7;
+}
+
+.monaco-editor .inline-breakpoint-widget.line-start {
+  left: -8px !important;
+}
+
+.monaco-editor .inline-breakpoint-widget {
+  cursor: pointer;
+}
+
+.monaco-editor .debug-breakpoint-placeholder::before {
+  content: ' ';
+  width: 0.9em;
+  display: inline-flex;
+  vertical-align: middle;
+  margin-top: -1px;
+}

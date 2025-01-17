@@ -1,0 +1,47 @@
+.rce-mtlink {
+  padding-bottom: 15px;
+  min-width: 400px;
+}
+
+.rce-mtlink-content {
+  background-color: #e2dfec;
+  border-radius: 4px;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  overflow: hidden;
+}
+
+.rce-mtlink-item {
+  color: #6c687c;
+  display: flex;
+  align-items: center;
+  user-select: none;
+  max-width: 100%;
+  overflow: hidden;
+  min-width: 240px;
+  justify-content: flex-start;
+}
+
+.rce-mtlink-title {
+  color: #07030a;
+  padding-left: 7px;
+  font-size: 15px;
+}
+
+.rce-mtlink-btn {
+  background: #ededed;
+  border-radius: 4px;
+  display: flex;
+  margin-left: 5px;
+}
+
+.rce-mtlink-btn-content {
+  padding: 4px;
+  cursor: pointer;
+  border-right: 1px solid;
+}
+.rce-mtlink-btn-content:last-child {
+  border-right: none;
+}

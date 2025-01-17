@@ -1,0 +1,94 @@
+@import '@opensumi/ide-core-browser/lib/style/variable.less';
+
+/* Statusbar */
+@statusBar-font-size: 12px;
+
+.statusBar {
+  background: var(--statusBar-background);
+  user-select: none;
+  display: flex;
+  height: 24px;
+  border-top: 1px solid var(--statusBar-border);
+  white-space: nowrap;
+}
+
+.area {
+  flex: 1;
+  display: flex;
+  align-items: stretch;
+}
+
+.left {
+  justify-content: flex-start;
+}
+
+.right {
+  justify-content: flex-end;
+  padding-right: calc(@base-ui-spacing*2);
+}
+
+.element.hasCommand:hover {
+  background-color: var(--statusBarItem-hoverBackground);
+  cursor: pointer;
+}
+
+.element.hasCommand:active {
+  background-color: var(--statusBarItem-activeBackground);
+}
+
+.area.left .element {
+  margin-right: @base-ui-spacing;
+}
+
+.area.right .element {
+  margin-left: @base-ui-spacing;
+}
+
+.element {
+  color: var(--statusBar-foreground);
+  display: flex;
+  align-items: center;
+  padding: 0 2px;
+  font-size: @statusBar-font-size;
+  &:first-child {
+    padding: 0px 10px;
+  }
+}
+
+.popover_tooltip,
+.popover_content {
+  display: flex;
+  font-size: @statusBar-font-size;
+  // stop Flexbox removing trailing whitespace
+  // see https://www.mattstobbs.com/flexbox-removing-trailing-whitespace/
+  white-space: pre;
+}
+
+.popover_content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.popover_item {
+  display: flex;
+  align-items: center;
+  white-space: pre;
+}
+
+.popover_content,
+.popover_tooltip,
+.element {
+  span:global(.codicon),
+  span:global(.kt-icon) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1em;
+    margin: 0 2px;
+    color: var(--statusBar-foreground);
+    &::before {
+      vertical-align: middle;
+    }
+  }
+}

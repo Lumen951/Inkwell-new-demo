@@ -1,0 +1,21 @@
+.ai_diff_editor_container {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  border-top: 1px solid var(--design-borderColor);
+  border-bottom: 1px solid var(--design-borderColor);
+  position: relative;
+  overflow: hidden;
+
+  .diff_editor_widget {
+    position: absolute;
+    height: inherit;
+    width: 100%;
+  }
+}
+
+.ai_diff_editor_resolve_result_widget {
+  z-index: var(--stacking-level-overlay-top);
+  display: flex;
+  position: relative;
+}

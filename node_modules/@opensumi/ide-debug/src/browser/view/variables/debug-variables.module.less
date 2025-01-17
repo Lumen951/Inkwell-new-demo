@@ -1,0 +1,144 @@
+.debug_variables_node {
+  height: 22px;
+  line-height: 22px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  cursor: pointer;
+
+  &:hover {
+    color: var(--kt-tree-hoverForeground);
+    background: var(--kt-tree-hoverBackground);
+  }
+
+  &.mod_selected {
+    color: var(--kt-tree-inactiveSelectionForeground) !important;
+    background: var(--kt-tree-inactiveSelectionBackground);
+  }
+
+  &.mod_focused {
+    outline: 1px solid var(--list-focusOutline);
+    color: var(--kt-tree-activeSelectionForeground) !important;
+  }
+
+  &.mod_actived {
+    outline: 1px solid var(--list-focusOutline);
+    outline-offset: -1px;
+  }
+
+  &.mod_loading {
+    opacity: 0.8;
+  }
+}
+
+.debug_variables_node_content {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  user-select: text;
+  match {
+    background-color: var(--editor-findMatchHighlightBackground);
+  }
+}
+
+.debug_variables_node_status {
+  opacity: 0.75;
+  text-align: center;
+  font-size: 12px;
+  padding-right: 0;
+}
+
+.debug_variables_node_segment {
+  flex-grow: 0;
+  white-space: nowrap;
+  color: inherit;
+}
+
+.debug_variables_node_displayname {
+  margin-right: 6px;
+  display: inline;
+  white-space: pre;
+}
+
+.debug_variables_node_description {
+  display: inline;
+  transform: scale(0.96);
+  color: var(--descriptionForeground);
+}
+
+.debug_variables_node_overflow_wrap {
+  flex: 1;
+  flex-shrink: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  text-align: left;
+  color: var(--foreground);
+}
+
+.expansion_toggle {
+  min-width: 20px;
+  display: flex;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 16px;
+  color: var(--foreground);
+
+  &:before {
+    transition: transform 0.2s ease-in-out;
+    font-size: 14px;
+  }
+
+  &.mod_collapsed {
+    &:before {
+      display: block;
+    }
+  }
+
+  &:not(.mod_collapsed) {
+    &:before {
+      display: block;
+      transform: rotate(90deg);
+    }
+  }
+}
+
+.debug_variables_node_tail {
+  text-align: center;
+  margin-right: 10px;
+  position: relative;
+  height: 22px;
+  display: flex;
+  align-items: center;
+}
+
+// variable
+.debug_variables_variable {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  &.value {
+    color: var(--debugTokenExpression-value);
+  }
+
+  &.name {
+    color: var(--debugTokenExpression-name);
+  }
+
+  &.error {
+    color: var(--debugTokenExpression-error);
+  }
+
+  &.number {
+    color: var(--debugTokenExpression-number);
+  }
+
+  &.boolean {
+    color: var(--debugTokenExpression-boolean);
+  }
+
+  &.string {
+    color: var(--debugTokenExpression-string);
+  }
+}

@@ -1,0 +1,28 @@
+/** Hover */
+.debug_hover {
+  font-family: 'Menlo for Powerline', Menlo, Monaco, 'Courier New', monospace;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 21px;
+  letter-spacing: 0px;
+  background-color: var(--editor-background);
+  position: relative;
+}
+
+.debug_hover_title {
+  padding-left: 10px;
+  padding-right: 10px;
+  line-height: 18px;
+  font-size: 12px;
+  word-break: normal;
+  text-overflow: ellipsis;
+  height: 18px;
+  overflow: hidden;
+  white-space: pre;
+  &.has_complex_value {
+    max-width: 700px;
+    min-width: 400px;
+    border-bottom: 1px solid hsla(0, 0%, 50%, 0.35);
+    padding-left: 16px;
+  }
+}

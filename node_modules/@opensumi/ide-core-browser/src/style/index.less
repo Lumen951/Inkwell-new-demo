@@ -1,0 +1,14 @@
+/**
+ * 这里的设计是为了将 应用本身完整 css 和 normalize 分开
+ * 目的是解决作为组件嵌入其他应用时，避免 normalize/reset 部分的样式冲突和互相覆盖\污染
+ * 需要增加引用时请前往 `entry.less`
+ * 需要增加 reset/normalize 部分时请前往 `normalize.less`
+ */
+@import './entry.less';
+@import './normalize.less';
+
+/**
+ * cdn 上无此样式，因此需放在公共的文件中
+ */
+
+@import './codicons/codicon-animations.css';

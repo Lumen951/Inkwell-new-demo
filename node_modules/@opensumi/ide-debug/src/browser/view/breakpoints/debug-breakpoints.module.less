@@ -1,0 +1,154 @@
+@tree-item-icon-size: 18px;
+
+.debug_breakpoints {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  :global {
+    span.kt-icon.icon.kaitian-icon {
+      min-width: @tree-item-icon-size;
+      width: @tree-item-icon-size;
+    }
+    .basic_tree .icon:before {
+      font-size: 14px;
+    }
+  }
+
+  .tree_item_twister_placeholder {
+    display: none;
+  }
+
+  .tree_item_twister_placeholder_fill {
+    min-width: @tree-item-icon-size;
+  }
+
+  .tree_item_twister {
+    min-width: @tree-item-icon-size;
+  }
+}
+
+.debug_breakpoints_disabled {
+  opacity: 0.4;
+}
+
+.debug_breakpoints_item {
+  height: 22px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  flex-direction: row;
+
+  .debug_breakpoints_item_control {
+    display: none;
+  }
+
+  .debug_remove_breakpoints_icon,
+  .debug_edit_breakpoints_icon {
+    margin-right: 6px;
+  }
+
+  &:hover {
+    .debug_breakpoints_item_control {
+      display: flex;
+    }
+    .debug_breakpoints_badge {
+      display: none;
+    }
+  }
+  &.selected {
+    background: var(--list-activeSelectionBackground);
+    color: var(--list-activeSelectionForeground);
+  }
+}
+
+.debug_breakpoints_icon {
+  width: @tree-item-icon-size;
+  height: @tree-item-icon-size;
+  min-width: @tree-item-icon-size;
+
+  :global {
+    .kt-checkbox-lump {
+      margin: auto;
+    }
+  }
+}
+
+.debug_breakpoints_badge {
+  display: block;
+  margin-right: 5px;
+}
+
+.debug_breakpoints_description {
+  display: block;
+  opacity: 0.85;
+  display: inline;
+
+  &.blank {
+    opacity: 0.35;
+  }
+}
+
+.debug_breakpoints_name {
+  flex-grow: 0;
+  display: inline;
+}
+
+.debug_breakpoints_wrapper {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin-right: 4px;
+  margin-left: 4px;
+  flex: 1;
+}
+
+.debug_activate_breakpoints_icon {
+  color: var(--debugIcon-activateBreakpointsForeground);
+  &:hover {
+    color: var(--debugIcon-activateBreakpointsForeground);
+  }
+}
+
+.debug_breakpoints_file_item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  .file_item_control {
+    display: flex;
+    align-items: center;
+    min-width: 18px;
+  }
+
+  .file_item_control_right {
+    .close_icon {
+      display: none;
+    }
+  }
+
+  .file_item_checkbox {
+    display: none;
+  }
+
+  .file_item_icon {
+    display: block;
+    height: 16px;
+    margin-right: 4px;
+  }
+
+  &:hover {
+    .file_item_checkbox {
+      display: flex;
+      margin-right: 4px;
+    }
+    .file_item_icon {
+      display: none;
+    }
+    .close_icon {
+      display: inherit;
+      pointer-events: all;
+      margin-right: 6px;
+    }
+  }
+}

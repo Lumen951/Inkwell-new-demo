@@ -1,0 +1,73 @@
+.debug_action {
+  opacity: 0.9;
+  cursor: pointer;
+  pointer-events: all;
+  text-align: center;
+  width: 16px;
+  height: 16px;
+  min-width: 16px;
+  line-height: 16px;
+  &::before {
+    font-size: 16px;
+  }
+  &:active {
+    transform: scale(1.1);
+  }
+  &::not(:focus) {
+    border: 1px solid transparent;
+  }
+  &.mod_disabled {
+    opacity: 0.5;
+    user-select: none;
+    pointer-events: none;
+  }
+}
+
+.icon-size {
+  font-size: 16px;
+}
+
+.start {
+  color: var(--debugIcon-startForeground);
+  .icon-size;
+}
+
+.continue {
+  color: var(--debugIcon-continueForeground);
+  .icon-size;
+}
+
+.step-in {
+  color: var(--debugIcon-stepIntoForeground);
+  .icon-size;
+}
+
+.step-out {
+  color: var(--debugIcon-stepOutForeground);
+  .icon-size;
+}
+
+.stop {
+  color: var(--debugIcon-stopForeground);
+  .icon-size;
+}
+
+.pause {
+  color: var(--debugIcon-pauseForeground);
+  .icon-size;
+}
+
+.disconnect {
+  color: var(--debugIcon-disconnectForeground);
+  .icon-size;
+}
+
+.reload {
+  color: var(--debugIcon-restartForeground);
+  .icon-size;
+}
+
+.step {
+  color: var(--debugIcon-stepOverForeground);
+  .icon-size;
+}
