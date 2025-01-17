@@ -1,61 +1,49 @@
 <h1 align="center">Inkwell IDE</h1>
 
-<p align="center">AI Native IDE based on CodeFuse and OpenSumi.</p>
+<p align="center">书心Inkwell IDE,解放大脑,专注内容</p>
 
-![0F2230D7-7623-4141-91BE-487973ED0AF7](https://github.com/user-attachments/assets/8b6c71c2-7242-4894-9c73-996365b4245a)
+原开源IDE代码仓库：https://github.com/codefuse-ai/codefuse-ide
+非常感谢原作者，为我们几位没有学习过前端的同学提供了实现自己想法的平台🙏🙏🙏
 
 
-[![Discussions][discussions-image]][discussions-url] [![Open in CodeBlitz][codeblitz-image]][codeblitz-url]
+# 为什么制作书心？
+书心Inkwell IDE为作者在北大新青年极客松和几位同学共同碰撞得到的想法
+起因是我们都是多平台创作者，深受多窗口编辑&格式切换所困扰
+于是我们想要将AI嵌入IDE，免受多窗口编辑之苦
+同时希望能够接入VSCode插件库的IDE，以解决不同格式编辑的需求
 
-[discussions-image]: https://img.shields.io/badge/discussions-on%20github-blue
-[discussions-url]: https://github.com/codefuse-ai/codefuse-ide/discussions
-[codeblitz-image]: https://img.shields.io/badge/Ant_Codespaces-Open_in_CodeBlitz-1677ff
-[codeblitz-url]: https://codeblitz.cloud.alipay.com/github/codefuse-ai/codefuse-ide
-[github-issues-url]: https://github.com/opensumi/core/issues
-[help-wanted-image]: https://flat.badgen.net/github/label-issues/codefuse-ai/codefuse-ide/🤔%20help%20wanted/open
-[help-wanted-url]: https://github.com/codefuse-ai/codefuse-ide/issues?q=is%3Aopen+is%3Aissue+label%3A%22🤔+help+wanted%22
+我们都是Obsidian，Notion，VSCode，Cursor的深度用户，前后在不同笔记软件敲下几十万字
+请相信我们，我们或许不懂太多前端代码，但我们懂文字创作，懂文字创作者
 
-## ✨ Features
-- **AI-Native Development Environment**: Enjoy an integrated development environment that leverages AI technologies to enhance productivity and streamline workflows.
-- **Open Model Integration**: Our platform supports the seamless integration of various models, allowing developers to customize and extend functionality according to their needs.
-- **VS Code Extension Compatibility**: Benefit from a rich ecosystem of plugins by ensuring compatibility with VS Code extensions, enabling you to leverage existing tools and resources.
-- **Complete Solution**: Uses electron-forge to package desktop applications and supports development, building, packaging, and auto updates.
+> 另外，如果有任何bug，非常欢迎反映，这毕竟是一个三天学习+制作出的demo，必然会存在大量bug，但我们希望和诸位创作者共同完善它
 
-## Getting started
+# 书心为谁制作？
+我们为深度内容创作者制作书心IDE，如果你是：
+1. 自媒体创作者（尤其是多平台创作者）
+2. 小说作者
+3. 科研工作者
+4. ……
+不妨体验一下书心Inkwell IDE
 
-See https://github.com/codefuse-ai/codefuse-ide/releases
+# 书心添加的功能
+简短的说，书心就是Cursor的写作版，我们添加或修改了一下功能：
+1. Ctrl+K 编辑框内调用对话框，输入要求与GPT对话创作
+2. 预置润色，翻译，总结，扩写提示词，提供一键式内容修改
+3. 侧边栏查询%提供创意灵感，保证创作连续性
+4. 此外，可以使用编辑框转换格式或者风格
+书心，助你舒心创作
 
-## Contributing
+# 源代码启动方法
 
-### Preparation
-- install Node.js >= 20
-- you can use npmmirror.com to speed up the installation in china
-  - `yarn config set -H npmRegistryServer "https://registry.npmmirror.com"`
-  - `export ELECTRON_MIRROR=https://npmmirror.com/mirrors/electron/`
-
-### Start the project
 ```bash
-# install dependencies
 yarn
-# rebuild native dependencies for electron
+
 yarn run electron-rebuild
-# start project
+
 yarn run start
 ```
+可能出现的报错：
+1. `yarn`没有配置环境变量：找到文件夹下yarn的bin文件夹，添加进入环境变量
+2. `yarn`存在某个库安装不上：下载Visual Studio，并配置相关库+补丁库
 
-### Start the web project (experimental)
-```bash
-# install dependencies
-yarn
-# rebuild native dependencies for web
-yarn run web-rebuild
-# build web
-yarn run build-web
-# start project, visit 127.0.0.1:8080
-yarn run start-web
-```
 
-## Links
-
-- **CodeFuse**: https://codefuse.ai
-- **OpenSumi**: https://opensumi.com
