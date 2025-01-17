@@ -114,7 +114,7 @@
     "@opensumi/ide-opened-editor": "3.6.4",
     "@opensumi/ide-outline": "3.6.4",
     "@opensumi/ide-output": "3.6.4",
-    "@opensumi/ide-overlay": "3.6.4",
+    "@opensumi/ide-overlay": "3.7.0",
     "@opensumi/ide-preferences": "3.6.4",
     "@opensumi/ide-process": "3.6.4",
     "@opensumi/ide-quick-open": "3.6.4",
