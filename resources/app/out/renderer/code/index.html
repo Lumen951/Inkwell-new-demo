@@ -1,0 +1,16 @@
+<!doctype html><html><head><script>const theme = localStorage.getItem('theme');
+      try {
+        const themeObj = JSON.parse(theme);
+        if (themeObj.editorBackground) {
+          document.documentElement.style.backgroundColor = themeObj.editorBackground;
+        }
+      } catch (e) {
+        // do nothing
+      }</script><meta charset="UTF-8"/><title>Inkwell IDE</title><style>body {
+        margin: 0;
+      }
+
+      #main {
+        height: 100%;
+        width: 100%;
+      }</style><script defer="defer" src="../vendor/index.js"></script><script defer="defer" src="../code/index.js"></script><link href="../code/index.css" rel="stylesheet"></head><body><div id="main"></div></body></html>
