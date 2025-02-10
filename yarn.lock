@@ -2140,7 +2140,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:*, @types/node@npm:^22.8.1":
+"@types/node@npm:*":
   version: 22.10.1
   resolution: "@types/node@npm:22.10.1"
   dependencies:
@@ -2162,6 +2162,15 @@ __metadata:
   dependencies:
     undici-types: "npm:~6.19.2"
   checksum: 10/11604a47adf383892394a59a339136b2746a71addf4a3b13f661d23b6e81e8a4f3b35e69dbcffc94698368e5ab5ec056a43a86c87eff00b1b8ea8cfcbfe641df
+  languageName: node
+  linkType: hard
+
+"@types/node@npm:^22.13.1":
+  version: 22.13.1
+  resolution: "@types/node@npm:22.13.1"
+  dependencies:
+    undici-types: "npm:~6.20.0"
+  checksum: 10/d8ba7068b0445643c0fa6e4917cdb7a90e8756a9daff8c8a332689cd5b2eaa01e4cd07de42e3cd7e6a6f465eeda803d5a1363d00b5ab3f6cea7950350a159497
   languageName: node
   linkType: hard
 
@@ -3971,7 +3980,7 @@ __metadata:
     "@types/debug": "npm:^4"
     "@types/js-yaml": "npm:^4"
     "@types/koa": "npm:^2"
-    "@types/node": "npm:^22.8.1"
+    "@types/node": "npm:^22.13.1"
     "@types/react": "npm:^18.3.3"
     "@types/react-dom": "npm:^18.3.1"
     "@vscode/spdlog": "npm:^0.15.0"
