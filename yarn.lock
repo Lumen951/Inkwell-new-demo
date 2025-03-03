@@ -965,6 +965,35 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@opensumi/ide-components@npm:3.8.0":
+  version: 3.8.0
+  resolution: "@opensumi/ide-components@npm:3.8.0"
+  dependencies:
+    "@ant-design/icons": "npm:^4.6.4"
+    "@opensumi/ide-core-common": "npm:3.8.0"
+    "@opensumi/ide-utils": "npm:3.8.0"
+    "@opensumi/react-custom-scrollbars-2": "npm:^4.3.4"
+    "@rc-component/mini-decimal": "npm:^1.0.1"
+    fuzzy: "npm:^0.1.3"
+    lodash: "npm:^4.17.21"
+    marked: "npm:4.0.10"
+    raf: "npm:^3.4.1"
+    rc-dialog: "npm:^9.6.0"
+    rc-dropdown: "npm:~2.4.1"
+    rc-input-number: "npm:^9.3.0"
+    rc-menu: "npm:^9.16.0"
+    rc-notification: "npm:~3.3.1"
+    rc-tooltip: "npm:^6.3.2"
+    rc-util: "npm:^5.44.3"
+    react-ctxmenu-trigger: "npm:^1.0.0"
+    react-lifecycles-compat: "npm:^3.0.4"
+    react-virtualized-auto-sizer: "npm:^1.0.2"
+    react-virtuoso: "npm:^3.1.5"
+    react-window: "npm:^1.8.5"
+  checksum: 10/74449a69df9622a71d274770badf05c27ec417be6e04971101bacd1cc68367b668bacb48acfdc504bfa4f0d299e9493bb98cdfd700688f32bac3246f50e66184
+  languageName: node
+  linkType: hard
+
 "@opensumi/ide-connection@npm:3.6.4":
   version: 3.6.4
   resolution: "@opensumi/ide-connection@npm:3.6.4"
@@ -978,6 +1007,22 @@ __metadata:
     path-to-regexp: "npm:^6.2.1"
     ws: "npm:^8.16.0"
   checksum: 10/76489f9feb81a72b90f0d8e4aa6b7c9e50204b80db0c403888346bc65879e424a9dfefd43481dc3991b02c558280d95a0b322ebb58d904b80e48dd70226ab4e9
+  languageName: node
+  linkType: hard
+
+"@opensumi/ide-connection@npm:3.8.0":
+  version: 3.8.0
+  resolution: "@opensumi/ide-connection@npm:3.8.0"
+  dependencies:
+    "@furyjs/fury": "npm:0.5.9-beta"
+    "@opensumi/events": "npm:^1.0.0"
+    "@opensumi/ide-core-common": "npm:3.8.0"
+    "@opensumi/ide-utils": "npm:3.8.0"
+    "@opensumi/reconnecting-websocket": "npm:^4.4.0"
+    "@opensumi/vscode-jsonrpc": "npm:^8.0.0-next.2"
+    path-to-regexp: "npm:^6.2.1"
+    ws: "npm:^8.16.0"
+  checksum: 10/11dcd208f05765801cac408d6337a5b5a1d5c57220845851890f610f36aaa6d7d66b367502e530b983c6e27936e0830dd519ac8921d962c9bc520a1d9758f11a
   languageName: node
   linkType: hard
 
@@ -1010,6 +1055,35 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@opensumi/ide-core-browser@npm:3.8.0":
+  version: 3.8.0
+  resolution: "@opensumi/ide-core-browser@npm:3.8.0"
+  dependencies:
+    "@opensumi/ide-components": "npm:3.8.0"
+    "@opensumi/ide-connection": "npm:3.8.0"
+    "@opensumi/ide-core-common": "npm:3.8.0"
+    "@opensumi/vscode-debugprotocol": "npm:1.49.0-beta.1"
+    "@vscode/codicons": "npm:0.0.35"
+    ajv: "npm:^6.10.0"
+    classnames: "npm:2.5.1"
+    fuzzy: "npm:^0.1.3"
+    jsonc-parser: "npm:^2.1.0"
+    keycode: "npm:^2.2.0"
+    lodash: "npm:^4.17.21"
+    react: "npm:^18.2.0"
+    react-dom: "npm:^18.2.0"
+    react-is: "npm:^18.2.0"
+    react-window: "npm:^1.8.5"
+    resize-observer-polyfill: "npm:1.5.1"
+    strip-json-comments: "npm:3.0.1"
+    vscode-textmate: "npm:7.0.1"
+  peerDependencies:
+    react: ^18.2.0
+    react-dom: ^18.2.0
+  checksum: 10/45d8eb0037f692cadcebc8676e5eb3a0ad3d03f87721d96141624e9822b4e94cccbac008a77e46fcc5e7d6fc3cedf42cedfe14a43b7422c9682e51da3f3c6daa
+  languageName: node
+  linkType: hard
+
 "@opensumi/ide-core-common@npm:3.6.4":
   version: 3.6.4
   resolution: "@opensumi/ide-core-common@npm:3.6.4"
@@ -1018,6 +1092,17 @@ __metadata:
     "@opensumi/events": "npm:^1.0.0"
     "@opensumi/ide-utils": "npm:3.6.4"
   checksum: 10/ec05423f021cc3730484880865bc447f21fefc9686bdd1ab424d0400fd8e0a8d5908d03d14b63ed0c5dbdb83f2771787f1316caad7852736e72a691e493901a2
+  languageName: node
+  linkType: hard
+
+"@opensumi/ide-core-common@npm:3.8.0":
+  version: 3.8.0
+  resolution: "@opensumi/ide-core-common@npm:3.8.0"
+  dependencies:
+    "@opensumi/di": "npm:^1.8.0"
+    "@opensumi/events": "npm:^1.0.0"
+    "@opensumi/ide-utils": "npm:3.8.0"
+  checksum: 10/bd502bdbabd972917f0d3c3ffec9bf29cd1e364425906ae2ac0afd33cf6d5a4b34a9275ea99e8b7c8108241c97a385d3bb959a468077a39b657e4e611ba543e4
   languageName: node
   linkType: hard
 
@@ -1045,6 +1130,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@opensumi/ide-core-node@npm:3.8.0":
+  version: 3.8.0
+  resolution: "@opensumi/ide-core-node@npm:3.8.0"
+  dependencies:
+    "@opensumi/ide-connection": "npm:3.8.0"
+    "@opensumi/ide-core-common": "npm:3.8.0"
+    "@opensumi/ide-utils": "npm:3.8.0"
+    keytar: "npm:^7.7.0"
+  checksum: 10/e9405c44022cdf9ff1f2db11133288e0cb46e147e79ad4504d70eec75a63679f04ae62b310242f3b5b750c0f442e3a20cb958a4de118a247d96f4836d4078529
+  languageName: node
+  linkType: hard
+
 "@opensumi/ide-debug@npm:3.6.4":
   version: 3.6.4
   resolution: "@opensumi/ide-debug@npm:3.6.4"
@@ -1063,6 +1160,27 @@ __metadata:
     btoa: "npm:^1.2.1"
     react-virtualized-auto-sizer: "npm:^1.0.2"
   checksum: 10/fec0a8bf1344ebc7c263f2233898ebdea51f3da14058ff27e17104155d2ad70334f4454dadbd154dff75ae4e930f42c8eb3f956489096454571c1f9fa490631c
+  languageName: node
+  linkType: hard
+
+"@opensumi/ide-debug@npm:3.8.0":
+  version: 3.8.0
+  resolution: "@opensumi/ide-debug@npm:3.8.0"
+  dependencies:
+    "@opensumi/ide-connection": "npm:3.8.0"
+    "@opensumi/ide-core-common": "npm:3.8.0"
+    "@opensumi/ide-core-node": "npm:3.8.0"
+    "@opensumi/ide-file-service": "npm:3.8.0"
+    "@opensumi/ide-task": "npm:3.8.0"
+    "@opensumi/ide-terminal-next": "npm:3.8.0"
+    "@opensumi/ide-utils": "npm:3.8.0"
+    "@rjsf/core": "npm:5.20.0"
+    "@rjsf/utils": "npm:5.20.0"
+    "@rjsf/validator-ajv6": "npm:5.20.0"
+    anser: "npm:^2.1.1"
+    btoa: "npm:^1.2.1"
+    react-virtualized-auto-sizer: "npm:^1.0.2"
+  checksum: 10/66e4fb0b1ef8cca0c7bef503bc2ba967ba1ea3434dfb699312715baa02b1cb84ba2976a3df8c294b8c70c6fbd2bc698d3cb855d47bc983e9703f9fef154b5d8f
   languageName: node
   linkType: hard
 
@@ -1195,6 +1313,35 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@opensumi/ide-extension@npm:3.8.0":
+  version: 3.8.0
+  resolution: "@opensumi/ide-extension@npm:3.8.0"
+  dependencies:
+    "@opensumi/events": "npm:^1.0.0"
+    "@opensumi/ide-connection": "npm:3.8.0"
+    "@opensumi/ide-core-browser": "npm:3.8.0"
+    "@opensumi/ide-core-node": "npm:3.8.0"
+    "@opensumi/ide-debug": "npm:3.8.0"
+    "@opensumi/ide-file-search": "npm:3.8.0"
+    "@opensumi/ide-file-service": "npm:3.8.0"
+    "@opensumi/ide-logs": "npm:3.8.0"
+    "@opensumi/ide-markdown": "npm:3.8.0"
+    "@opensumi/ide-task": "npm:3.8.0"
+    "@opensumi/ide-terminal-next": "npm:3.8.0"
+    "@opensumi/ide-utils": "npm:3.8.0"
+    "@opensumi/ide-webview": "npm:3.8.0"
+    address: "npm:^1.1.2"
+    glob-to-regexp: "npm:0.4.1"
+    is-running: "npm:^2.1.0"
+    lru-cache: "npm:^6.0.0"
+    picomatch: "npm:^2.2.1"
+    semver: "npm:^7.5.2"
+    tree-kill: "npm:^1.2.2"
+    v8-inspect-profiler: "npm:^0.1.1"
+  checksum: 10/5db855a724d4de95ea7d50458dc10f2c0ca19581693a0feeec3d5ec7d89e545bb4c613ef730134365ca50f6382746ac8fac9c312ed2e5a5cbbfca080ee71a28f
+  languageName: node
+  linkType: hard
+
 "@opensumi/ide-file-scheme@npm:3.6.4":
   version: 3.6.4
   resolution: "@opensumi/ide-file-scheme@npm:3.6.4"
@@ -1219,6 +1366,19 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@opensumi/ide-file-search@npm:3.8.0":
+  version: 3.8.0
+  resolution: "@opensumi/ide-file-search@npm:3.8.0"
+  dependencies:
+    "@opensumi/ide-core-common": "npm:3.8.0"
+    "@opensumi/ide-core-node": "npm:3.8.0"
+    "@opensumi/ide-process": "npm:3.8.0"
+    "@opensumi/vscode-ripgrep": "npm:^1.4.0"
+    fuzzy: "npm:^0.1.3"
+  checksum: 10/0195956aa7a88a0095ec63bf4937d036170a0f5ddf0981ed9601d83a31f305c5aa82e278eb1519da437c4ea7b05af4db904a05e604643e23b41f685b609ffe4c
+  languageName: node
+  linkType: hard
+
 "@opensumi/ide-file-service@npm:3.6.4":
   version: 3.6.4
   resolution: "@opensumi/ide-file-service@npm:3.6.4"
@@ -1235,6 +1395,25 @@ __metadata:
     vscode-languageserver-types: "npm:^3.16.0"
     write-file-atomic: "npm:^5.0.1"
   checksum: 10/acbb00ca13c9a27bfb81bbf6978e6c1b1b63176f9ef3587efe2ec5887c5f66b1d63f0851e9ad1c86202eab0bce26b2c72ae77bbf2cb3305a9a3925b3f3bd1b9b
+  languageName: node
+  linkType: hard
+
+"@opensumi/ide-file-service@npm:3.8.0":
+  version: 3.8.0
+  resolution: "@opensumi/ide-file-service@npm:3.8.0"
+  dependencies:
+    "@opensumi/ide-connection": "npm:3.8.0"
+    "@opensumi/ide-core-common": "npm:3.8.0"
+    "@opensumi/ide-core-node": "npm:3.8.0"
+    "@opensumi/ide-logs": "npm:3.8.0"
+    "@opensumi/ide-utils": "npm:3.8.0"
+    "@parcel/watcher": "npm:2.1.0"
+    file-type: "npm:16.5.4"
+    nsfw: "npm:2.2.0"
+    trash: "npm:^5.2.0"
+    vscode-languageserver-types: "npm:^3.16.0"
+    write-file-atomic: "npm:^5.0.1"
+  checksum: 10/b8ca3a64ac0abdfd2e3972e2d1591c1b9f752794a70aa6ae7ede97201018357e3350e35ec5676ce3a39114af6f0c96fd28692af733e0189de5c4df00f2022047
   languageName: node
   linkType: hard
 
@@ -1280,6 +1459,19 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@opensumi/ide-logs@npm:3.8.0":
+  version: 3.8.0
+  resolution: "@opensumi/ide-logs@npm:3.8.0"
+  dependencies:
+    "@opensumi/ide-connection": "npm:3.8.0"
+    "@opensumi/ide-core-common": "npm:3.8.0"
+    "@opensumi/ide-core-node": "npm:3.8.0"
+    compressing: "npm:^1.10.0"
+    spdlog: "npm:^0.9.0"
+  checksum: 10/595a22baa540ddcf37774472a3d49e4a0471d53b38cc2924323fc7f855559b0553f0fbb26247aa603edb1e24380bce97ec320d6e2b0fa3deb51bc0686ea05151
+  languageName: node
+  linkType: hard
+
 "@opensumi/ide-main-layout@npm:3.6.4":
   version: 3.6.4
   resolution: "@opensumi/ide-main-layout@npm:3.6.4"
@@ -1298,6 +1490,15 @@ __metadata:
   dependencies:
     "@opensumi/ide-core-common": "npm:3.6.4"
   checksum: 10/f0ecb2af52b692fb739c784649301b094e22e1543dd632a3077bc8f474a996876bff66207ae043827639c164ac4a2c7befb52bcb146442e0a8f8cc4059608ea9
+  languageName: node
+  linkType: hard
+
+"@opensumi/ide-markdown@npm:3.8.0":
+  version: 3.8.0
+  resolution: "@opensumi/ide-markdown@npm:3.8.0"
+  dependencies:
+    "@opensumi/ide-core-common": "npm:3.8.0"
+  checksum: 10/78c0cc22a1be1bbef2c9010a0c82d291b8df5cbf47fb5e6556dd8926911de96dcfddc9a96dd7435a2172624af6f74b0724cfeab167c9082f46ee78f70428dffb
   languageName: node
   linkType: hard
 
@@ -1400,6 +1601,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@opensumi/ide-process@npm:3.8.0":
+  version: 3.8.0
+  resolution: "@opensumi/ide-process@npm:3.8.0"
+  dependencies:
+    "@opensumi/ide-core-common": "npm:3.8.0"
+    "@opensumi/ide-core-node": "npm:3.8.0"
+  checksum: 10/0c6fd887e5c30e1c288c9c1ae3ea5444b3606da0b1a64708878a2a512cbc4f2a3dd246faf0da8ba8a921393d9f2ade0fed326ff11b43e7e026d03bf5bba23f2e
+  languageName: node
+  linkType: hard
+
 "@opensumi/ide-quick-open@npm:3.6.4":
   version: 3.6.4
   resolution: "@opensumi/ide-quick-open@npm:3.6.4"
@@ -1475,6 +1686,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@opensumi/ide-task@npm:3.8.0":
+  version: 3.8.0
+  resolution: "@opensumi/ide-task@npm:3.8.0"
+  dependencies:
+    "@opensumi/ide-core-common": "npm:3.8.0"
+    "@opensumi/ide-terminal-next": "npm:3.8.0"
+  checksum: 10/2af2902c4e16bbca9a21fa2507215ef7c1723c5ec872dcf40b55baf84bb0c4904b609b324bd7963c7d9a832480702defd8216094df5ec3537ea973bf3c26c9cf
+  languageName: node
+  linkType: hard
+
 "@opensumi/ide-terminal-next@npm:3.6.4":
   version: 3.6.4
   resolution: "@opensumi/ide-terminal-next@npm:3.6.4"
@@ -1492,6 +1713,26 @@ __metadata:
     node-pty: "npm:1.0.0"
     os-locale: "npm:^4.0.0"
   checksum: 10/d328b9bf7f3ad6312033831510bb5a241c5706e228bdd524c3966872aac0170705a1bf71ecd13d00419f6a343b83df8b74c4036c3ac873f74e22b92edb5db4c8
+  languageName: node
+  linkType: hard
+
+"@opensumi/ide-terminal-next@npm:3.8.0":
+  version: 3.8.0
+  resolution: "@opensumi/ide-terminal-next@npm:3.8.0"
+  dependencies:
+    "@opensumi/ide-connection": "npm:3.8.0"
+    "@opensumi/ide-core-common": "npm:3.8.0"
+    "@opensumi/ide-core-node": "npm:3.8.0"
+    "@opensumi/ide-file-service": "npm:3.8.0"
+    "@opensumi/ide-utils": "npm:3.8.0"
+    "@xterm/addon-canvas": "npm:0.7.0"
+    "@xterm/addon-fit": "npm:0.10.0"
+    "@xterm/addon-search": "npm:0.15.0"
+    "@xterm/addon-webgl": "npm:0.18.0"
+    "@xterm/xterm": "npm:5.5.0"
+    node-pty: "npm:1.0.0"
+    os-locale: "npm:^4.0.0"
+  checksum: 10/8b5c900e078a5c0fd7b18f36e775cdcd6169d990ddd4d9bd05d9fba4921ffc8dcb163bd9aa7a32ff5c595f0a1cce4337b5baaec8f29c86d019be413346ae7aea
   languageName: node
   linkType: hard
 
@@ -1537,6 +1778,19 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@opensumi/ide-utils@npm:3.8.0":
+  version: 3.8.0
+  resolution: "@opensumi/ide-utils@npm:3.8.0"
+  dependencies:
+    iconv-lite: "npm:^0.6.3"
+    jschardet: "npm:3.0.0"
+    mri: "npm:^1.2.0"
+    nanoid: "npm:3.3.8"
+    vscode-uri: "npm:3.0.2"
+  checksum: 10/34227b32d8ce125f7044c666caf5ee6f848b30d9535d3634c3bcb27d081990e6d0af16eedaf2c858f18a2e474a8e242dcbf9af1e58d0e1667d2c6929b21a66bf
+  languageName: node
+  linkType: hard
+
 "@opensumi/ide-variable@npm:3.6.4":
   version: 3.6.4
   resolution: "@opensumi/ide-variable@npm:3.6.4"
@@ -1554,6 +1808,17 @@ __metadata:
   peerDependencies:
     electron: "*"
   checksum: 10/e80cf55140e9a9d86fa4c778f91c1033db8d7c5e51a659ee921919106a4dab10d2e98919b435d4712a64c8b689bc497259cd45804f092f6a75251451bb840c3e
+  languageName: node
+  linkType: hard
+
+"@opensumi/ide-webview@npm:3.8.0":
+  version: 3.8.0
+  resolution: "@opensumi/ide-webview@npm:3.8.0"
+  dependencies:
+    "@opensumi/ide-core-common": "npm:3.8.0"
+  peerDependencies:
+    electron: "*"
+  checksum: 10/c67e94a001ef45e322501454b3ed508e86f7472ee206e4750549aac8a74265705524efc3a213fed6de6f267f9330c7c1e098ebe744501de3827e699f4c31b8bb
   languageName: node
   linkType: hard
 
@@ -1667,7 +1932,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@rc-component/portal@npm:^1.1.0":
+"@rc-component/portal@npm:^1.0.0-8, @rc-component/portal@npm:^1.1.0":
   version: 1.1.2
   resolution: "@rc-component/portal@npm:1.1.2"
   dependencies:
@@ -3930,7 +4195,7 @@ __metadata:
     "@opensumi/ide-electron-basic": "npm:3.6.4"
     "@opensumi/ide-explorer": "npm:3.6.4"
     "@opensumi/ide-express-file-server": "npm:3.6.4"
-    "@opensumi/ide-extension": "npm:3.6.4"
+    "@opensumi/ide-extension": "npm:3.8.0"
     "@opensumi/ide-extension-manager": "npm:3.6.4"
     "@opensumi/ide-extension-storage": "npm:3.6.4"
     "@opensumi/ide-file-scheme": "npm:3.6.4"
@@ -9497,7 +9762,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"nanoid@npm:^3.3.7":
+"nanoid@npm:3.3.8, nanoid@npm:^3.3.7":
   version: 3.3.8
   resolution: "nanoid@npm:3.3.8"
   bin:
@@ -11380,6 +11645,22 @@ __metadata:
   languageName: node
   linkType: hard
 
+"rc-dialog@npm:^9.6.0":
+  version: 9.6.0
+  resolution: "rc-dialog@npm:9.6.0"
+  dependencies:
+    "@babel/runtime": "npm:^7.10.1"
+    "@rc-component/portal": "npm:^1.0.0-8"
+    classnames: "npm:^2.2.6"
+    rc-motion: "npm:^2.3.0"
+    rc-util: "npm:^5.21.0"
+  peerDependencies:
+    react: ">=16.9.0"
+    react-dom: ">=16.9.0"
+  checksum: 10/f6dcdb066f26f7b59fef458e18ba3c257a73b7036774d12022d548c7e343e8a51db2d1f3bae45928bcefb978fb29c4f2d6954c56fd006b0360fcc47c095c01c8
+  languageName: node
+  linkType: hard
+
 "rc-dialog@npm:~7.6.0":
   version: 7.6.1
   resolution: "rc-dialog@npm:7.6.1"
@@ -11419,6 +11700,53 @@ __metadata:
   languageName: node
   linkType: hard
 
+"rc-input-number@npm:^9.3.0":
+  version: 9.4.0
+  resolution: "rc-input-number@npm:9.4.0"
+  dependencies:
+    "@babel/runtime": "npm:^7.10.1"
+    "@rc-component/mini-decimal": "npm:^1.0.1"
+    classnames: "npm:^2.2.5"
+    rc-input: "npm:~1.7.1"
+    rc-util: "npm:^5.40.1"
+  peerDependencies:
+    react: ">=16.9.0"
+    react-dom: ">=16.9.0"
+  checksum: 10/6a01e73361d8665c5e9863aaf079f816fb4b673dc35501101037e7326025493ea2c0b14151e2e9dd63228ac8855b064f20e411a78c61e60555846d177b79c6be
+  languageName: node
+  linkType: hard
+
+"rc-input@npm:~1.7.1":
+  version: 1.7.3
+  resolution: "rc-input@npm:1.7.3"
+  dependencies:
+    "@babel/runtime": "npm:^7.11.1"
+    classnames: "npm:^2.2.1"
+    rc-util: "npm:^5.18.1"
+  peerDependencies:
+    react: ">=16.0.0"
+    react-dom: ">=16.0.0"
+  checksum: 10/c4636e4be6e66ff5b1f49e162cf1b8e053277ca70e98ce801ffd5fcb1fa6918928aacca55991885936c81672214d696725acde9773ae412c69ce48374c6f48d1
+  languageName: node
+  linkType: hard
+
+"rc-menu@npm:^9.16.0":
+  version: 9.16.1
+  resolution: "rc-menu@npm:9.16.1"
+  dependencies:
+    "@babel/runtime": "npm:^7.10.1"
+    "@rc-component/trigger": "npm:^2.0.0"
+    classnames: "npm:2.x"
+    rc-motion: "npm:^2.4.3"
+    rc-overflow: "npm:^1.3.1"
+    rc-util: "npm:^5.27.0"
+  peerDependencies:
+    react: ">=16.9.0"
+    react-dom: ">=16.9.0"
+  checksum: 10/200016d580205b4c38aa30927b76157f7c6e8091344faf8cbc32e25b2add2d874f8cdec3e91ee72a598734345c0db431ae8368d35fe3258ef7fc398cfcfb30cb
+  languageName: node
+  linkType: hard
+
 "rc-menu@npm:^9.3.2":
   version: 9.16.0
   resolution: "rc-menu@npm:9.16.0"
@@ -11447,6 +11775,20 @@ __metadata:
     react: ">=16.9.0"
     react-dom: ">=16.9.0"
   checksum: 10/7468588fdcd49d707a5c4ad071fe2bbea82c704a48e639af7437655a523f35d80ee34cc290d8c7daf4c211fa6d2a27826d6d30eaede1accf8e384b4e61582ff6
+  languageName: node
+  linkType: hard
+
+"rc-motion@npm:^2.3.0":
+  version: 2.9.5
+  resolution: "rc-motion@npm:2.9.5"
+  dependencies:
+    "@babel/runtime": "npm:^7.11.1"
+    classnames: "npm:^2.2.1"
+    rc-util: "npm:^5.44.0"
+  peerDependencies:
+    react: ">=16.9.0"
+    react-dom: ">=16.9.0"
+  checksum: 10/81a60e49c2fa78e88654039523ef9043f1476bc26f80f38561604ec48c256c9e5897254cda62ceff3c8e898285ae085568d1cd4fe35e8b018016517e998e3d44
   languageName: node
   linkType: hard
 
@@ -11507,6 +11849,21 @@ __metadata:
   languageName: node
   linkType: hard
 
+"rc-tooltip@npm:^6.3.2":
+  version: 6.4.0
+  resolution: "rc-tooltip@npm:6.4.0"
+  dependencies:
+    "@babel/runtime": "npm:^7.11.2"
+    "@rc-component/trigger": "npm:^2.0.0"
+    classnames: "npm:^2.3.1"
+    rc-util: "npm:^5.44.3"
+  peerDependencies:
+    react: ">=16.9.0"
+    react-dom: ">=16.9.0"
+  checksum: 10/3d0502136f352fda261827974aa08c46d7ace4b7b246940cecea87fe6a1a7c360f0897c233be7ea8aeddcb1aef4e20fdac081356e8dfdf0e4c176a56b5bbc79b
+  languageName: node
+  linkType: hard
+
 "rc-trigger@npm:^2.5.1":
   version: 2.6.5
   resolution: "rc-trigger@npm:2.6.5"
@@ -11532,6 +11889,19 @@ __metadata:
     react-lifecycles-compat: "npm:^3.0.4"
     shallowequal: "npm:^1.1.0"
   checksum: 10/aa68990486c6e45d4a37446ef6ec0ad4d6829ec01975a009494ba36b2d3c2d4eda8a64c75ee8d6984cdc30450b83e975dcefb6781bff9297f4b5c0fa56567629
+  languageName: node
+  linkType: hard
+
+"rc-util@npm:^5.18.1, rc-util@npm:^5.21.0, rc-util@npm:^5.40.1, rc-util@npm:^5.44.3":
+  version: 5.44.4
+  resolution: "rc-util@npm:5.44.4"
+  dependencies:
+    "@babel/runtime": "npm:^7.18.3"
+    react-is: "npm:^18.2.0"
+  peerDependencies:
+    react: ">=16.9.0"
+    react-dom: ">=16.9.0"
+  checksum: 10/c456b9899545625b6d856bef1218ce0ed87af13e2c9c328e302fd255b912ee2e4a0fd81603221736ed9b176ed79507abc2275dc1df488ea465d26b4807f4e99a
   languageName: node
   linkType: hard
 
