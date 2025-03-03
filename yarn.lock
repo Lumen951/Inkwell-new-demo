@@ -1021,6 +1021,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@opensumi/ide-core-common@npm:3.8.0":
+  version: 3.8.0
+  resolution: "@opensumi/ide-core-common@npm:3.8.0"
+  dependencies:
+    "@opensumi/di": "npm:^1.8.0"
+    "@opensumi/events": "npm:^1.0.0"
+    "@opensumi/ide-utils": "npm:3.8.0"
+  checksum: 10/bd502bdbabd972917f0d3c3ffec9bf29cd1e364425906ae2ac0afd33cf6d5a4b34a9275ea99e8b7c8108241c97a385d3bb959a468077a39b657e4e611ba543e4
+  languageName: node
+  linkType: hard
+
 "@opensumi/ide-core-electron-main@npm:3.6.4":
   version: 3.6.4
   resolution: "@opensumi/ide-core-electron-main@npm:3.6.4"
@@ -1320,6 +1331,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@opensumi/ide-menu-bar@npm:3.8.0":
+  version: 3.8.0
+  resolution: "@opensumi/ide-menu-bar@npm:3.8.0"
+  dependencies:
+    "@opensumi/ide-core-common": "npm:3.8.0"
+    "@opensumi/ide-theme": "npm:3.8.0"
+  checksum: 10/7f4730e7b8f9db52d879b773ebbec058dbfb2a186f1fdccd49f7fcd08f011997ab2bac027fc4e7b7072bd4e836a941a3fb1ee0c3291080a973fbfd19389eafdc
+  languageName: node
+  linkType: hard
+
 "@opensumi/ide-monaco-enhance@npm:3.6.4":
   version: 3.6.4
   resolution: "@opensumi/ide-monaco-enhance@npm:3.6.4"
@@ -1515,6 +1536,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@opensumi/ide-theme@npm:3.8.0":
+  version: 3.8.0
+  resolution: "@opensumi/ide-theme@npm:3.8.0"
+  dependencies:
+    "@opensumi/ide-core-common": "npm:3.8.0"
+  checksum: 10/a44e6378c26277c822f2ee94fdee6ef105a26367d76da62f109d021b1a58bc1d0a8cdacb74b0d9f92e514f5148436a44fc2a85d40e5f63b7edae30badd1302aa
+  languageName: node
+  linkType: hard
+
 "@opensumi/ide-toolbar@npm:3.6.4":
   version: 3.6.4
   resolution: "@opensumi/ide-toolbar@npm:3.6.4"
@@ -1534,6 +1564,19 @@ __metadata:
     nanoid: "npm:3.3.4"
     vscode-uri: "npm:3.0.2"
   checksum: 10/32a0c1753fe8bf0a286a71c45e4ccc2cd8e4c96f67652722b15a4c2f01826747b5d22b9db91ef5bc23d9fd75e2298bdd7b9acb2e3c8eea640f1f7fabd42355c8
+  languageName: node
+  linkType: hard
+
+"@opensumi/ide-utils@npm:3.8.0":
+  version: 3.8.0
+  resolution: "@opensumi/ide-utils@npm:3.8.0"
+  dependencies:
+    iconv-lite: "npm:^0.6.3"
+    jschardet: "npm:3.0.0"
+    mri: "npm:^1.2.0"
+    nanoid: "npm:3.3.8"
+    vscode-uri: "npm:3.0.2"
+  checksum: 10/34227b32d8ce125f7044c666caf5ee6f848b30d9535d3634c3bcb27d081990e6d0af16eedaf2c858f18a2e474a8e242dcbf9af1e58d0e1667d2c6929b21a66bf
   languageName: node
   linkType: hard
 
@@ -3943,7 +3986,7 @@ __metadata:
     "@opensumi/ide-main-layout": "npm:3.6.4"
     "@opensumi/ide-markdown": "npm:3.6.4"
     "@opensumi/ide-markers": "npm:3.6.4"
-    "@opensumi/ide-menu-bar": "npm:3.6.4"
+    "@opensumi/ide-menu-bar": "npm:3.8.0"
     "@opensumi/ide-monaco": "npm:3.6.4"
     "@opensumi/ide-monaco-enhance": "npm:3.6.4"
     "@opensumi/ide-opened-editor": "npm:3.6.4"
@@ -9497,7 +9540,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"nanoid@npm:^3.3.7":
+"nanoid@npm:3.3.8, nanoid@npm:^3.3.7":
   version: 3.3.8
   resolution: "nanoid@npm:3.3.8"
   bin:
